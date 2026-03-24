@@ -4,12 +4,12 @@ services:
 
   frontend:
     build:
-      context: ../../
-      dockerfile: docker/frontend/Dockerfile
+      context: ../
+      dockerfile: docker/Dockerfile
 
     container_name: itamityt_frontend
 
     ports:
-      - "8081:80"
+      - "80:80"
 
     restart: always
