@@ -25,4 +25,4 @@ jobs:
         run: |
           docker build \
           -t ghcr.io/${{ github.repository }}/frontend:test \
-          .
+          ./docker
