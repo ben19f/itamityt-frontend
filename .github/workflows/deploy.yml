@@ -24,9 +24,8 @@ jobs:
       - name: Build image
         run: |
           docker build \
-          -t ghcr.io/${{ github.repository }}/frontend:latest \
-          ./docker
+          -t ghcr.io/${{ github.repository }}/frontend:v0.0.1 .
 
       - name: Push image
         run: |
-          docker push ghcr.io/${{ github.repository }}/frontend:latest
+          docker push ghcr.io/${{ github.repository }}/frontend:v0.0.1
