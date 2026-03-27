@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>И там и тут — Главная</title>
-  <link rel="stylesheet" href="/css/all.css">
-</head>
-<body>
-  <header class="container header">
-    <div><img src="images/logo.png" alt="И там и тут" class="logo"></div>
-    <ul class="menu-list">
-      <li class="menu-top_item"><a href="/index.html">Главная</a></li>
-    <li class="menu-top_item"><a href="/login.html">Вход</a></li>
-    <li class="menu-top_item"><a href="/register.html">Регистрация</a></li>
-    <li class="menu-top_item"><a href="/userhome.html">Админка профиля</a></li>
-    </ul>
-  </header>
 
-  <main>
+    
+<?php include 'header.php'; ?>    
     <section class="container">
       <div>
         <p>Добро пожаловать! Это сервис для публикации и поиска ссылок.</p>
@@ -41,12 +25,4 @@
       <h2>Последние зарегистрированные пользователи</h2>
       <div id="last-users-container"></div>
     </section>
-  </main>
-
-  <footer class="container">
-    <p>© 2026 itamityt.ru</p>
-  </footer>
-
-  <script src="/js/main.js"></script>
-</body>
-</html>
+ <?php include 'footer.php'; ?>

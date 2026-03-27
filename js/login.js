@@ -24,7 +24,7 @@ form.addEventListener("submit", async (e) => {
       localStorage.setItem("token", data.access_token);
       messageEl.style.color = "green";
       messageEl.textContent = "Успешный вход";
-      window.location.href = "/userhome.html";
+      window.location.href = "/userhome.php";
     } else {
       messageEl.textContent = data.detail || "Ошибка входа";
     }

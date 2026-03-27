@@ -1,0 +1,14 @@
+<?php include 'header.php'; ?>  
+ <div class="container">
+  <h2>Вход</h2>
+
+  <form id="loginForm">
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Пароль" required>
+
+    <button type="submit">Войти</button>
+  </form>
+
+  <p id="message"></p>
+</div>
+ <?php include 'footer.php'; ?>
