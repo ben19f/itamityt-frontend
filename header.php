@@ -8,7 +8,7 @@
 <body>
   <header class="header_container">
     <div class="container">
-<div><img src="images/logo.png" alt="И там и тут" class="logo"></div>
+<div><img src="/images/logo.png" alt="И там и тут" class="logo"></div>
     <ul class="menu-list">
       <li class="menu-top_item"><a href="/index.php">Главная</a></li>
     <li class="menu-top_item"><a href="/login.php">Вход</a></li>
