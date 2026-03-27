@@ -23,3 +23,7 @@
     <p id="message"></p>
   </div>
  <?php include 'footer.php'; ?>
+ <script src="/js/profile.js"></script>
+ 
+</body>
+</html>

@@ -10,3 +10,7 @@
     <p id="message"></p>
   </div>
  <?php include 'footer.php'; ?>
+  <script src="/js/register.js"></script>
+ 
+</body>
+</html>
