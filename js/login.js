@@ -1,6 +1,6 @@
 const form = document.getElementById("loginForm");
 const messageEl = document.getElementById("message");
-const API_URL = "http://backend-service:8000/api";
+const API_URL = "/api";
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();

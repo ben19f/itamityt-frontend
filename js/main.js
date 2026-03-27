@@ -1,7 +1,7 @@
 // const API_URL = "https://itamityt.ru/api/public";
 // const REDIRECT_URL = "https://itamityt.ru/rserv";
-const API_URL = "http://backend-service:8000/api/public";
-const REDIRECT_URL = "http://redirect-service:8000/rserv";
+const API_URL = "/api/public";
+const REDIRECT_URL = "/rserv";
 
 const searchBtn = document.getElementById("search-btn");
 const searchUsernameInput = document.getElementById("search-username");
@@ -24,7 +24,7 @@ searchBtn.addEventListener("click", () => {
       return res.json();
     })
     .then(() => {
-      window.location.href = `public_profile.html?username=${encodeURIComponent(username)}`;
+      window.location.href = `public_profile.php?username=${encodeURIComponent(username)}`;
     })
     .catch(err => {
       console.error(err);
@@ -69,7 +69,7 @@ fetch(`${API_URL}/last-users`)
 
       // Клик по карточке пользователя
       card.addEventListener("click", () => {
-        window.location.href = `public_profile.html?username=${encodeURIComponent(user.username)}`;
+        window.location.href = `public_profile.php?username=${encodeURIComponent(user.username)}`;
       });
 
       lastUsersContainer.appendChild(card);

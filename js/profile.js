@@ -1,5 +1,5 @@
-const API_URL = "http://backend-service:8000/api";
-const REDIRECT_URL = "http://redirect-service:8000/rserv";
+const API_URL = "/api";
+const REDIRECT_URL = "/rserv";
 
 const token = localStorage.getItem("token");
 if (!token) {
