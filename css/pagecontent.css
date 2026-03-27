@@ -1,0 +1,17 @@
+/* стили карточки юзера на его личной странице */
+.profile-card {
+    border: 1px solid black;
+    border-radius: 30px;
+    padding: 10px 40px;
+}
+
+.link-item {
+    background-color: yellow;
+}
+
+
+
+.link-item__link {
+    background-color: green;
+}
+
