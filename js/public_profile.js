@@ -1,5 +1,5 @@
-const API_URL = "http://backend-service:8000/api/public";
-const REDIRECT_URL = "http://redirect-service:8000/rserv";
+const API_URL = "/api/public";
+const REDIRECT_URL = "/rserv";
 
 const linksContainer = document.getElementById("links-container");
 const messageEl = document.getElementById("message");

@@ -2,7 +2,7 @@ const form = document.getElementById("registerForm");
 const messageEl = document.getElementById("message");
 
 // URL бэкенда через Nginx proxy на /api
-const API_URL = "http://backend-service:8000/api";  
+const API_URL = "/api";  
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
