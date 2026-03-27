@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>  
+<?php include 'menu.php'; ?> 
   <div class="container">
     <div class="topbar">
       <h2>Мои ссылки</h2>

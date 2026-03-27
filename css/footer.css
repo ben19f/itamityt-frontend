@@ -1,4 +1,4 @@
-.header {
+.footer {
     
     background-color: #4a90e2;
     /* background-color: yellow; */
@@ -14,15 +14,3 @@
     color: white;
 }
 
-.menu-list {
-    margin-top: 30px;
-  display: flex;
-  flex-direction: row;
-}
-
-.menu-top_item {
-padding: 10px;
-background-color: green;
-color: white;
-margin-right: 10px;
-}

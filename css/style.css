@@ -76,3 +76,17 @@ a:focus {
   outline: none;
   color: none;
 }
+
+
+.menu-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menu-top_item {
+padding: 10px;
+background-color: #4a90e2;
+color: white;
+margin-right: 10px;
+}

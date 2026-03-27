@@ -9,6 +9,7 @@
     flex-direction: column;
     align-items: center;      /* вертикальное центрирование */
   justify-content: center;  /* горизонтальное центрирование */
+  width: 90%;  
 }
 
 .link-item {
@@ -27,7 +28,24 @@
 .link-item__link {
     /* background-color: green; */
     padding: 10px;
-    font-size: 15px;
+    font-size: 25px;
 font-weight: bold;
 }
 
+.profile-page{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.profile-header {
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.user_profile-id {
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: bold;
+}

@@ -1,6 +1,7 @@
 
     
-<?php include 'header.php'; ?>    
+<?php include 'header.php'; ?> 
+<?php include 'menu.php'; ?>    
     <section class="container">
       <div>
         <p>Добро пожаловать! Это сервис для публикации и поиска ссылок.</p>
@@ -13,10 +14,10 @@
     </section>
 
     <section class="container section_user-template">
-      <h2>Новая компания</h2>
+      <h2>Так может выглядеть ваш профиль</h2>
       <div class="card">
-        <h3>Пример компании</h3>
-        <a href="#">Ссылка 1</a>
+        <h3>@Aristokrat_rest</h3>
+        <a href="#">Сайт ресторана</a>
         <a href="#">Ссылка 2</a>
       </div>
     </section>
