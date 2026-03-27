@@ -1,0 +1,51 @@
+/* стили карточки юзера на его личной странице */
+.profile-card {
+    /* border: 1px solid black; */
+    border-radius: 30px;
+    padding: 10px 40px;
+    box-shadow: 0px 0px 20px rgba(241, 60, 60, 0.3);
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* вертикальное центрирование */
+  justify-content: center;  /* горизонтальное центрирование */
+  width: 90%;  
+}
+
+.link-item {
+    background-color: yellow;
+    display: flex;
+    align-items: center;      /* вертикальное центрирование */
+  justify-content: center;  /* горизонтальное центрирование */
+  margin-top: 10px;
+  border-radius: 10px;
+  min-height: 40px;  
+  width: 90%;
+}
+
+
+
+.link-item__link {
+    /* background-color: green; */
+    padding: 10px;
+    font-size: 25px;
+font-weight: bold;
+}
+
+.profile-page{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.profile-header {
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.user_profile-id {
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: bold;
+}

@@ -2,6 +2,7 @@ const form = document.getElementById("registerForm");
 const messageEl = document.getElementById("message");
 
 // URL бэкенда через Nginx proxy на /api
+// const API_URL = "https://dev.itamityt.ru/api"; 
 const API_URL = "/api";  
 
 form.addEventListener("submit", async (e) => {
