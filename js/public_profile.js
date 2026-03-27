@@ -1,5 +1,5 @@
-const API_URL = "https://itamityt.ru/api/public";
-const REDIRECT_URL = "https://itamityt.ru/rserv";
+const API_URL = "/api/public";
+const REDIRECT_URL = "/rserv";
 
 const linksContainer = document.getElementById("links-container");
 const messageEl = document.getElementById("message");
