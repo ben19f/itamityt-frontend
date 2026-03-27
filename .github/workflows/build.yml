@@ -3,7 +3,7 @@ name: Build & Push Frontend (GHCR)
 on:
   push:
     branches:
-      - dev
+      - devi
 
 jobs:
   build-and-push:
