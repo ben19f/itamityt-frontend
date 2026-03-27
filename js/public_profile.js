@@ -12,7 +12,7 @@ const username = params.get("username");
 if (!username) {
   messageEl.textContent = "Не указан пользователь";
 } else {
-  profileTitle.textContent = `Профиль пользователя ${username}`;
+  profileTitle.textContent = `@${username}`;
 
   fetch(`${API_URL}/profile/${username}`)
     .then(res => {
