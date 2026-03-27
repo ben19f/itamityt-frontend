@@ -1,6 +1,6 @@
 .footer {
     
-    background-color: #4a90e2;
+    background-color: #1A1D23;
     /* background-color: yellow; */
     display: flex;
     align-items: center;
@@ -8,9 +8,12 @@
 
 }
 
-.logo {
+/* .logo {
     font-size: 30px;
     font-weight: bold;
     color: white;
-}
+} */
 
+.footer-text {
+    color: white;
+}

@@ -2,7 +2,7 @@
 
   <footer class="footer">
     <div class="container">
- <p>© 2026 itamityt.ru</p>
+ <p class='footer-text'>© 2026 itamityt.ru</p>
     </div>
    
   </footer>

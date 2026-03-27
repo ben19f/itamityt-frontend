@@ -1,7 +1,7 @@
 .header_container {
     
-    background-color: #4a90e2;
-    /* background-color: yellow; */
+    /* background-color: #4a90e2; */
+    background-color: #1A1D23;
     display: flex;
     align-items: center;
     flex-direction: column;
