@@ -1,9 +1,9 @@
-const API_URL = "https://itamityt.ru/api";
-const REDIRECT_URL = "https://itamityt.ru/rserv";
+const API_URL = "/api";
+const REDIRECT_URL = "/rserv";
 
 const token = localStorage.getItem("token");
 if (!token) {
-  window.location.href = "/login.html";
+  window.location.href = "/login.php";
 }
 
 // Для дебага: покажем токен в консоли
@@ -128,7 +128,7 @@ async function deleteItem(id) {
 // -------------------------------
 document.getElementById("logoutBtn").addEventListener("click", () => {
   localStorage.removeItem("token");
-  window.location.href = "/login.html";
+  window.location.href = "/login.php";
 });
 
 // -------------------------------
@@ -151,7 +151,7 @@ if (deleteBtn) {
 
       localStorage.removeItem("token");
       alert("Аккаунт удален");
-      window.location.href = "/index.html";
+      window.location.href = "/index.php";
 
     } catch (err) {
       message.style.color = "red";

@@ -1,5 +1,5 @@
-const API_URL = "https://itamityt.ru/api/public";
-const REDIRECT_URL = "https://itamityt.ru/rserv";
+const API_URL = "/api/public";
+const REDIRECT_URL = "/rserv";
 
 const linksContainer = document.getElementById("links-container");
 const messageEl = document.getElementById("message");
@@ -12,7 +12,7 @@ const username = params.get("username");
 if (!username) {
   messageEl.textContent = "Не указан пользователь";
 } else {
-  profileTitle.textContent = `Профиль пользователя ${username}`;
+  profileTitle.textContent = `@${username}`;
 
   fetch(`${API_URL}/profile/${username}`)
     .then(res => {
@@ -26,11 +26,13 @@ if (!username) {
       }
       items.forEach(item => {
         const p = document.createElement("p");
+        p.classList.add("link-item"); // добавляем класс
         const redirectUrl = `${REDIRECT_URL}/${item.link_id}`;
         const a = document.createElement("a");
         a.href = redirectUrl;
         a.textContent = item.name;
         a.target = "_blank";
+        a.classList.add("link-item__link"); // отдельный класс для ссылки
         p.appendChild(a);
         linksContainer.appendChild(p);
       });
