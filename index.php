@@ -18,14 +18,30 @@
       <div class="card">
         <h3>@Aristokrat_rest</h3>
         <a href="#">Сайт ресторана</a>
-        <a href="#">Ссылка 2</a>
+        <a href="#">Наш телеграм</a>
+        <a href="#">Мы в ВКонтакте</a>
+        <a href="#">Меню</a>
       </div>
     </section>
+            
+            <section class="container section_last-users">
+  <h2>Последние зарегистрированные пользователи</h2>
+<div class="carousel-block">
+<button class="portfolio-carousel-btn" id="users-btn--prev">←</button>
 
-    <section class="container section_last-users">
+  <div class="portfolio-carousel__window">
+    <div class="portfolio-carousel__cards" id="users-cards"></div>
+  </div>
+
+  <button class="portfolio-carousel-btn" id="users-btn--next">→</button>
+</div>
+  
+</section>
+            
+    <!-- <section class="container section_last-users">
       <h2>Последние зарегистрированные пользователи</h2>
-      <div id="last-users-container"></div>
-    </section>
+      <div class='' id="last-users-container"></div>
+    </section> -->
  <?php include 'footer.php'; ?>
    <script src="/js/main.js"></script>
  

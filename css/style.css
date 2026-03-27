@@ -90,3 +90,18 @@ background-color: #4a90e2;
 color: white;
 margin-right: 10px;
 }
+
+
+
+.card {
+  width: 300px;
+  border-radius: 30px;
+    padding: 10px 40px;
+    box-shadow: 0px 0px 20px rgba(241, 60, 60, 0.3);
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* вертикальное центрирование */
+  justify-content: center;  /* горизонтальное центрирование */
+  /* width: 90%;   */
+}
