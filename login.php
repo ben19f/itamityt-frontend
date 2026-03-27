@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>  
+<?php include 'menu.php'; ?> 
  <div class="container">
   <h2>Вход</h2>
 

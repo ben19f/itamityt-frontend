@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>  
-    <div class="container">
-      <h1>Профиль пользователя</h1>
-      <div id="profile-title"></div>
+    <div class="container profile-page">
+      <h1 class='profile-header'>Профиль пользователя</h1>
+      <div class='user_profile-id' id="profile-title"></div>
       <div class="profile-card" id="links-container">
         <h2>Доступные ссылки:</h2>
       </div>

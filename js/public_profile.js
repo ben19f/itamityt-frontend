@@ -1,3 +1,6 @@
+// const API_URL = "https://dev.itamityt.ru/api/public";
+// const REDIRECT_URL = "https://dev.itamityt.ru/rserv";
+
 const API_URL = "/api/public";
 const REDIRECT_URL = "/rserv";
 
