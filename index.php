@@ -76,8 +76,10 @@
     <a href="/register.php" class="btn-primary">Зарегистрироваться</a>
   </section>
 
-</main>
+
  <?php include 'footer.php'; ?>
    <script src="/js/main.js"></script>
  
 
+</body>
+</html>
