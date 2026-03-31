@@ -17,10 +17,10 @@
 
   <!-- 🔍 ПОИСК -->
   <section class="container search-section">
-    <h2>Найти пользователя</h2>
+    <h2 class="search-section_header">Найти пользователя</h2>
 
     <input class="user-search" type="text" id="search-username" placeholder="@username">
-    <button id="search-btn">Найти</button>
+    <button class="search-section_btn" id="search-btn">Найти</button>
 
     <p id="message"></p>
     <div id="search-result"></div>
