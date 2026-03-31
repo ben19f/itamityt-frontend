@@ -2,48 +2,84 @@
     
 <?php include 'header.php'; ?> 
 <?php include 'menu.php'; ?>    
-    <section class="container">
-      <div>
-        <p>Добро пожаловать! Это сервис для публикации и поиска ссылок.</p>
-        <p>Введите username, чтобы посмотреть профиль, или зарегистрируйте свой.</p>
-        <input type="text" id="search-username" placeholder="Введите username">
-        <button id="search-btn">Искать</button>
-        <p id="message"></p>
+    
+
+  <!-- 🔥 HERO -->
+  <section class="container hero">
+    <h1>Создай свою страницу ссылок за 1 минуту</h1>
+    <p class="hero-text">Все твои Telegram, VK, GitHub и сайты — в одном месте</p>
+
+    <div class="hero-buttons">
+      <a href="/register.php" class="btn-primary">Создать страницу</a>
+    </div>
+  </section>
+
+
+  <!-- 🔍 ПОИСК -->
+  <section class="container search-section">
+    <h2 class="search-section_header">Найти пользователя</h2>
+
+    <input class="user-search" type="text" id="search-username" placeholder="@username">
+    <button class="search-section_btn" id="search-btn">Найти</button>
+
+    <p id="message"></p>
+    <div id="search-result"></div>
+  </section>
+
+
+  <!-- 🧪 ПРИМЕР -->
+  <section class="container section_user-template" id="example">
+    <h2>Как выглядит страница</h2>
+
+    <div class="card example-card">
+      <h3>@Aristokrat_rest</h3>
+      <a href="#">🍽 Сайт ресторана</a>
+      <a href="#">📱 Telegram</a>
+      <a href="#">📍 ВКонтакте</a>
+      <a href="#">📖 Меню</a>
+    </div>
+  </section>
+
+
+  <!-- ⭐️ ПРЕИМУЩЕСТВА -->
+  <section class="container advantages">
+    <h2>Почему это удобно</h2>
+
+    <div class="advantages-list">
+      <div class="adv-item">✔️ Все ссылки в одном месте</div>
+      <div class="adv-item">✔️ Быстрое создание страницы</div>
+      <div class="adv-item">✔️ Удобно для соцсетей и визиток</div>
+      <div class="adv-item">✔️ Бесплатно</div>
+    </div>
+  </section>
+
+
+  <!-- 👥 ПОЛЬЗОВАТЕЛИ -->
+  <section class="container section_last-users">
+    <h2 class="last-users_header">Новые пользователи</h2>
+
+    <div class="carousel-block">
+      <button class="portfolio-carousel-btn" id="users-btn--prev">←</button>
+
+      <div class="portfolio-carousel__window">
+        <div class="portfolio-carousel__cards" id="users-cards"></div>
       </div>
-      <div id="search-result"></div>
-    </section>
 
-    <section class="container section_user-template">
-      <h2>Так может выглядеть ваш профиль</h2>
-      <div class="card">
-        <h3>@Aristokrat_rest</h3>
-        <a href="#">Сайт ресторана</a>
-        <a href="#">Наш телеграм</a>
-        <a href="#">Мы в ВКонтакте</a>
-        <a href="#">Меню</a>
-      </div>
-    </section>
-            
-            <section class="container section_last-users">
-  <h2>Последние зарегистрированные пользователи</h2>
-<div class="carousel-block">
-<button class="portfolio-carousel-btn" id="users-btn--prev">←</button>
+      <button class="portfolio-carousel-btn" id="users-btn--next">→</button>
+    </div>
+  </section>
 
-  <div class="portfolio-carousel__window">
-    <div class="portfolio-carousel__cards" id="users-cards"></div>
-  </div>
 
-  <button class="portfolio-carousel-btn" id="users-btn--next">→</button>
-</div>
-  
-</section>
-            
-    <!-- <section class="container section_last-users">
-      <h2>Последние зарегистрированные пользователи</h2>
-      <div class='' id="last-users-container"></div>
-    </section> -->
+  <!-- 🚀 CTA -->
+  <section class="container cta">
+    <h2 class="cta-header">Создай свою страницу прямо сейчас</h2>
+    <a href="/register.php" class="btn-primary">Зарегистрироваться</a>
+  </section>
+
+
  <?php include 'footer.php'; ?>
    <script src="/js/main.js"></script>
  
+
 </body>
 </html>

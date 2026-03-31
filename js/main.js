@@ -106,7 +106,7 @@ function initUsersCarousel() {
 
   if (!cards.length || !prevBtn || !nextBtn) return;
 
-  const cardWidth = cards[0].offsetWidth + 70;
+  const cardWidth = cards[0].offsetWidth + 30;
   let index = 0;
 
   function update() {

@@ -3,9 +3,9 @@
     background-color: #1A1D23;
     /* background-color: yellow; */
     display: flex;
-    align-items: center;
-    flex-direction: column;
-
+    /* align-items: center; */
+    flex-direction: row;
+justify-content: space-between;
 }
 
 /* .logo {
@@ -16,4 +16,12 @@
 
 .footer-text {
     color: white;
+}
+
+.footer-links {
+    color: white;
+    display: flex;
+    
+    flex-direction: column;
+    /* min-width: 300px; */
 }

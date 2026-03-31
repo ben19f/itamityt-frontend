@@ -105,3 +105,88 @@ margin-right: 10px;
   justify-content: center;  /* горизонтальное центрирование */
   /* width: 90%;   */
 }
+
+.user-search {
+  
+}
+
+
+.hero {
+  text-align: center;
+  /* margin: 60px 0; */
+}
+
+.btn-primary {
+  background: #2b6cff;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.btn-secondary {
+  margin-left: 10px;
+  color: #2b6cff;
+}
+
+.card {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.advantages-list {
+  display: grid;
+  gap: 10px;
+}
+
+.hero-text {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.search-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-section_header {
+  margin-bottom: 10px;
+}
+
+.search-section_btn {
+  margin-top: 10px;
+}
+
+.section_user-template {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.advantages  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section_last-users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.last-users_header {
+  margin-bottom: 20px;
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta-header {
+  margin-bottom: 30px;
+}
