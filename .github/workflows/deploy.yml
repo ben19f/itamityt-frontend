@@ -59,6 +59,7 @@ jobs:
             BUMP=patch
 
           echo "bump=$BUMP" >> $GITHUB_OUTPUT      
+          fi
 
       # Получаем последний тег и считаем новый с учетом bump
       - name: Get latest tag
