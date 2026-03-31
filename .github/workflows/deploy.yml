@@ -42,7 +42,7 @@ jobs:
         run: |
           git fetch --tags
 
-          LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null  echo "")
+          LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
 
           if [ -z "$LAST_TAG" ]; then
             echo "bump=patch" >> $GITHUB_OUTPUT
@@ -51,9 +51,12 @@ jobs:
 
           COMMITS=$(git log ${LAST_TAG}..HEAD --pretty=format:"%s")
 
-          echo "$COMMITS" | grep "BREAKING CHANGE\|!" >/dev/null && BUMP=major  \
-          echo "$COMMITS" | grep "^feat" >/dev/null && BUMP=minor || \
-          BUMP=patch
+          if echo "$COMMITS" | grep "BREAKING CHANGE\|!"; then
+            BUMP=major
+          elif echo "$COMMITS" | grep -q "^feat"; then 
+            BUMP=minor
+          else
+            BUMP=patch
 
           echo "bump=$BUMP" >> $GITHUB_OUTPUT      
 
