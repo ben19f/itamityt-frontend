@@ -1,7 +1,7 @@
-// const API_URL = "https://dev.itamityt.ru/api/public";
-// const REDIRECT_URL = "https://dev.itamityt.ru/rserv";
-const API_URL = "/api/public";
-const REDIRECT_URL = "/rserv";
+const API_URL = "https://dev.itamityt.ru/api/public";
+const REDIRECT_URL = "https://dev.itamityt.ru/rserv";
+// const API_URL = "/api/public";
+// const REDIRECT_URL = "/rserv";
 
 const searchBtn = document.getElementById("search-btn");
 const searchUsernameInput = document.getElementById("search-username");
@@ -106,7 +106,7 @@ function initUsersCarousel() {
 
   if (!cards.length || !prevBtn || !nextBtn) return;
 
-  const cardWidth = cards[0].offsetWidth + 70;
+  const cardWidth = cards[0].offsetWidth + 30;
   let index = 0;
 
   function update() {
