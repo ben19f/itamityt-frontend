@@ -70,7 +70,7 @@
   </section>
 
 
-  <!-- 🚀 CTA -->
+  <!--- 🚀 CTA -->
   <section class="container cta">
     <h2 class="cta-header">Создай свою страницу прямо сейчас</h2>
     <a href="/register.php" class="btn-primary">Зарегистрироваться</a>
