@@ -14,8 +14,12 @@ jobs:
       packages: write
 
     steps:
+      # - name: Checkout
+      #   uses: actions/checkout@v4
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       # Определяем тип bump по коммитам
       - name: Determine version bump
