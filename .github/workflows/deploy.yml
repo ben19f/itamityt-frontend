@@ -6,26 +6,79 @@ on:
       - main
 
 jobs:
-  build-and-push:
+  build:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read
+      contents: write
       packages: write
 
     steps:
-
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Определяем тип bump по коммитам
+      - name: Determine version bump
+        id: bump
+        run: |
+          COMMITS=$(git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"%s")
+          echo "Commits to consider for bump:"
+          echo "$COMMITS"
+
+          if echo "$COMMITS" | grep -q "BREAKING CHANGE\|!"; then
+            echo "bump=major" >> $GITHUB_OUTPUT
+          elif echo "$COMMITS" | grep -q "^feat"; then
+            echo "bump=minor" >> $GITHUB_OUTPUT
+          else
+            echo "bump=patch" >> $GITHUB_OUTPUT
+
+      # Получаем последний тег и считаем новый с учетом bump
+      - name: Get latest tag
+        id: tag
+        run: |
+          git fetch --tags
+          LAST_TAG=$(git tag --sort=-v:refname | head -n 1)
+
+          if [ -z "$LAST_TAG" ]; then
+            MAJOR=0
+            MINOR=1
+            PATCH=0
+          else
+            VERSION=${LAST_TAG#v}
+            IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+          fi
+
+          case "${{ steps.bump.outputs.bump }}" in
+            major)
+              MAJOR=$((MAJOR+1))
+              MINOR=0
+              PATCH=0
+              ;;
+            minor)
+              MINOR=$((MINOR+1))
+              PATCH=0
+              ;;
+            patch)
+              PATCH=$((PATCH+1))
+              ;;
+          esac
+
+          NEW_TAG="v$MAJOR.$MINOR.$PATCH"
+          echo "tag=$NEW_TAG" >> $GITHUB_OUTPUT
+          echo "New tag will be $NEW_TAG"
+
+      # Создаём и пушим git tag
+      - name: Create git tag
+        run: |
+          git tag ${{ steps.tag.outputs.tag }}
+          git push origin ${{ steps.tag.outputs.tag }}
+
+      # Логинимся в GHCR
       - name: Login to GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Build image
+      # Сборка и пуш Docker образа
+      - name: Build and push
         run: |
-          docker build \
-          -t ghcr.io/${{ github.repository }}/frontend:v0.1.0 .
-
-      - name: Push image
-        run: |
-          docker push ghcr.io/${{ github.repository }}/frontend:v0.1.0
+          docker build -t ghcr.io/${{ github.repository }}/frontend:${{ steps.tag.outputs.tag }} .
+          docker push ghcr.io/${{ github.repository }}/frontend:${{ steps.tag.outputs.tag }}
