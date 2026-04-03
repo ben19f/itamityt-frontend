@@ -4,7 +4,7 @@
 <?php include 'menu.php'; ?>    
     
 
-
+<main>
 
   <!-- 🔥 HERO -->
   <section class="section hero">
@@ -21,7 +21,7 @@
     <div class="container">
       <h2 class="title">Найти пользователя</h2>
 
-      <div class="card">
+      <div class="card search-block">
         <input class="input" type="text" id="search-username" placeholder="@username">
         <button class="button" id="search-btn">Найти</button>
 
@@ -36,12 +36,12 @@
     <div class="container">
       <h2 class="title">Как выглядит страница</h2>
 
-      <div class="card">
+      <div class="card example-card">
         <h3>@Aristokrat_rest</h3>
-        <a href="#" class="link">🍽 Сайт ресторана</a>
-        <a href="#" class="link">📱 Telegram</a>
-        <a href="#" class="link">📍 ВКонтакте</a>
-        <a href="#" class="link">📖 Меню</a>
+        <a href="#" class="button">🍽 Сайт ресторана</a>
+        <a href="#" class="button">📱 Telegram</a>
+        <a href="#" class="button">📍 ВКонтакте</a>
+        <a href="#" class="button">📖 Меню</a>
       </div>
     </div>
   </section>
@@ -51,7 +51,7 @@
     <div class="container">
       <h2 class="title">Почему это удобно</h2>
 
-      <div class="grid">
+      <div class="grid advantages-grid">
         <div class="card">✔️ Все ссылки в одном месте</div>
         <div class="card">✔️ Быстрое создание страницы</div>
         <div class="card">✔️ Удобно для соцсетей</div>
