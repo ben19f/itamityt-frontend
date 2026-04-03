@@ -1,27 +1,17 @@
 .footer {
-    
-    background-color: #1A1D23;
-    /* background-color: yellow; */
-    display: flex;
-    /* align-items: center; */
-    flex-direction: row;
-justify-content: space-between;
-}
-
-/* .logo {
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-} */
-
-.footer-text {
-    color: white;
+  border-top: 1px solid #eee;
+  padding: 20px 0;
+  margin-top: 40px;
+  text-align: center;
 }
 
 .footer-links {
-    color: white;
-    display: flex;
-    
-    flex-direction: column;
-    /* min-width: 300px; */
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer-links a {
+  color: var(--primary);
 }
