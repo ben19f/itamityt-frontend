@@ -5,17 +5,30 @@ const API_URL = "/api";
 const form = document.getElementById("registerForm");
 const messageEl = document.getElementById("message");
 
+// ✅ нормализация username
+function normalizeUsername(input) {
+  return input
+    .trim()
+    .replace(/^@+/, "") // убираем @ в начале
+    .toLowerCase();
+}
+
+// 👉 убираем пробелы при вводе
+form.username.addEventListener("input", () => {
+  form.username.value = form.username.value.replace(/\s/g, "");
+});
+
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   messageEl.textContent = "";
   messageEl.style.color = "red";
 
-  const username = form.username.value.trim();
+  const username = normalizeUsername(form.username.value);
   const email = form.email.value.trim();
   const password = form.password.value;
 
-  // 🔎 базовая валидация (очень важно)
+  // 🔎 базовая валидация
   if (username.length < 3) {
     messageEl.textContent = "Username должен быть минимум 3 символа";
     return;
@@ -43,7 +56,7 @@ form.addEventListener("submit", async (e) => {
 
       form.reset();
 
-      // 👉 редирект через 1.5 сек (очень улучшает UX)
+      // 🚀 редирект после регистрации
       setTimeout(() => {
         window.location.href = "/login.php";
       }, 1500);
