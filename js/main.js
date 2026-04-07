@@ -1,7 +1,7 @@
-const API_URL = "https://dev.itamityt.ru/api/public";
-const REDIRECT_URL = "https://dev.itamityt.ru/rserv";
-// const API_URL = "/api/public";
-// const REDIRECT_URL = "/rserv";
+// const API_URL = "https://dev.itamityt.ru/api/public";
+// const REDIRECT_URL = "https://dev.itamityt.ru/rserv";
+const API_URL = "/api/public";
+const REDIRECT_URL = "/rserv";
 
 const searchBtn = document.getElementById("search-btn");
 const searchUsernameInput = document.getElementById("search-username");
@@ -12,8 +12,13 @@ const messageEl = document.getElementById("message");
 // =====================
 if (searchBtn && searchUsernameInput && messageEl) {
   searchBtn.addEventListener("click", () => {
-    const username = searchUsernameInput.value.trim();
+    let username = searchUsernameInput.value.trim();
     messageEl.textContent = "";
+
+    // Удаляем символ @ в начале строки, если он есть
+    if (username.startsWith('@')) {
+      username = username.substring(1);
+    }
 
     if (!username) {
       messageEl.textContent = "Введите username";
@@ -60,7 +65,7 @@ if (usersTrack) {
 
         const title = document.createElement("h3");
         title.className = "portfolio-carousel__card-title";
-        title.textContent = user.username;
+        title.textContent = `@${user.username}`;
         card.appendChild(title);
 
         if (user.items && user.items.length) {
