@@ -1,6 +1,10 @@
 @import url("/css/normalize.css");
 @import url("/css/style.css");
 @import url("/css/header.css");
-@import url("/css/pagecontent.css");
+@import url("/css/menu.css");
+@import url("/css/index.css");
+@import url("/css/public_profile.css"); 
+@import url("/css/register.css"); 
+@import url("/css/profile.css"); 
 @import url("/css/footer.css"); 
 @import url("/css/portfolio.css"); 

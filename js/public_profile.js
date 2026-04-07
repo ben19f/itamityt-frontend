@@ -7,8 +7,8 @@ const REDIRECT_URL = "/rserv";
 const linksContainer = document.getElementById("links-container");
 const messageEl = document.getElementById("message");
 const profileTitle = document.getElementById("profile-title");
+const copyBtn = document.getElementById("copy-profile-link");
 
-// Получаем username из query-параметра
 const params = new URLSearchParams(window.location.search);
 const username = params.get("username");
 
@@ -17,6 +17,14 @@ if (!username) {
 } else {
   profileTitle.textContent = `@${username}`;
 
+  // копирование ссылки
+  copyBtn.addEventListener("click", () => {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url);
+    copyBtn.textContent = "Скопировано!";
+    setTimeout(() => copyBtn.textContent = "Скопировать ссылку", 2000);
+  });
+
   fetch(`${API_URL}/profile/${username}`)
     .then(res => {
       if (!res.ok) throw new Error("Пользователь не найден");
@@ -24,20 +32,23 @@ if (!username) {
     })
     .then(items => {
       if (items.length === 0) {
-        linksContainer.textContent = "У пользователя пока нет ссылок";
+        linksContainer.innerHTML = `
+          <div class="empty-state">
+            У пользователя пока нет ссылок
+          </div>
+        `;
         return;
       }
+
       items.forEach(item => {
-        const p = document.createElement("p");
-        p.classList.add("link-item"); // добавляем класс
-        const redirectUrl = `${REDIRECT_URL}/${item.link_id}`;
-        const a = document.createElement("a");
-        a.href = redirectUrl;
-        a.textContent = item.name;
-        a.target = "_blank";
-        a.classList.add("link-item__link"); // отдельный класс для ссылки
-        p.appendChild(a);
-        linksContainer.appendChild(p);
+        const link = document.createElement("a");
+        link.href = `${REDIRECT_URL}/${item.link_id}`;
+        link.textContent = item.name;
+        link.target = "_blank";
+
+        link.classList.add("profile-link-btn");
+
+        linksContainer.appendChild(link);
       });
     })
     .catch(err => {

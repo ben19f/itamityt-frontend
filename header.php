@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -8,7 +8,7 @@
 
 <body>
 
-<header class="header_container">
+<header class="header">
   <div class="container">
     <a href="/index.php">
       <img src="/images/logo.png" alt="И там и тут" class="logo">
@@ -16,4 +16,5 @@
   </div>
 </header>
 
-  <main>
+
+

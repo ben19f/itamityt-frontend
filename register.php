@@ -1,17 +1,50 @@
 <?php include 'header.php'; ?>  
 <?php include 'menu.php'; ?> 
-<div class="container">
-    <h2>Регистрация</h2>
-    <form id="registerForm">
-      <input type="text" name="username" placeholder="Имя пользователя" required /><br/>
-      <input type="email" name="email" placeholder="Email" required /><br/>
-      <input type="password" name="password" placeholder="Пароль" required /><br/>
-      <button type="submit">Зарегистрироваться</button>
+
+<div class="container auth-page">
+
+  <div class="auth-card">
+    <h1>Создать аккаунт</h1>
+    <p class="auth-subtitle">Собери все свои ссылки в одном месте</p>
+
+    <form id="registerForm" class="auth-form">
+
+      <input 
+        type="text" 
+        name="username" 
+        placeholder="Имя пользователя (@username)" 
+        required 
+      />
+
+      <input 
+        type="email" 
+        name="email" 
+        placeholder="Email" 
+        required 
+      />
+
+      <input 
+        type="password" 
+        name="password" 
+        placeholder="Пароль (минимум 6 символов)" 
+        required 
+      />
+
+      <button type="submit" class="btn-primary">Зарегистрироваться</button>
+
     </form>
-    <p id="message"></p>
+
+    <p id="message" class="form-message"></p>
+
+    <p class="auth-footer">
+      Уже есть аккаунт? <a href="/login.php">Войти</a>
+    </p>
   </div>
- <?php include 'footer.php'; ?>
-  <script src="/js/register.js"></script>
- 
+
+</div>
+
+<?php include 'footer.php'; ?>
+
+<script src="/js/register.js"></script>
 </body>
 </html>
