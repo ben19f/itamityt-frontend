@@ -45,21 +45,21 @@ jobs:
           LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
 
           if [ -z "$LAST_TAG" ]; then
-            echo "bump=patch" >> $GITHUB_OUTPUT
-            exit 0
+          echo "bump=patch" >> $GITHUB_OUTPUT
+          exit 0
           fi
 
           COMMITS=$(git log ${LAST_TAG}..HEAD --pretty=format:"%s")
 
-          if echo "$COMMITS" | grep "BREAKING CHANGE\|!"; then
-            BUMP=major
-          elif echo "$COMMITS" | grep -q "^feat"; then 
-            BUMP=minor
+          if echo "$COMMITS" | grep -qE "BREAKING CHANGE|!"; then
+          BUMP=major
+          elif echo "$COMMITS" | grep -qE "(^|\n)feat"; then
+          BUMP=minor
           else
-            BUMP=patch
-
-          echo "bump=$BUMP" >> $GITHUB_OUTPUT      
+          BUMP=patch
           fi
+
+          echo "bump=$BUMP" >> $GITHUB_OUTPUT
 
       # Получаем последний тег и считаем новый с учетом bump
       - name: Get latest tag
