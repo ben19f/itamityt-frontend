@@ -1,20 +1,33 @@
-.header_container {
-    
-    /* background-color: #4a90e2; */
-    background-color: #1A1D23;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    max-height: 100px;
-
+.header {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+  background-color: #1A1D23;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 70px;
 }
 
 .logo {
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-    max-height: 80px;
+  height: 60px;
 }
 
+/* NAV */
 
+.nav {
+  margin-top: 10px;
+}
 
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.nav-list a {
+  display: block;
+  padding: 8px 12px;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius);
+}

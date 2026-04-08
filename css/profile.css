@@ -1,0 +1,100 @@
+.dashboard {
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+.dashboard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.links-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link-card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link-name {
+  font-weight: 600;
+}
+
+.link-url {
+  font-size: 12px;
+  color: #777;
+}
+
+.link-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-small {
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #eee;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.btn-small:hover {
+  background: #ddd;
+}
+
+.danger {
+  color: red;
+}
+
+.btn-primary {
+  background: #2b6cff;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+.btn-secondary {
+  background: #eee;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.btn-danger {
+  background: #ff4d4f;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.add-form {
+  display: flex;
+  gap: 10px;
+}
+
+.add-form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.empty-state {
+  color: #999;
+  padding: 20px;
+  text-align: center;
+}

@@ -1,0 +1,50 @@
+.profile-page {
+  max-width: 500px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.profile-header-block {
+  margin-bottom: 30px;
+}
+
+.profile-subtitle {
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.profile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 🔥 САМОЕ ВАЖНОЕ */
+.profile-link-btn {
+  display: block;
+  padding: 14px;
+  border-radius: 10px;
+  background: #2b6cff;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.profile-link-btn:hover {
+  background: #1f4ed8;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #eee;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.empty-state {
+  color: #999;
+  padding: 20px;
+}

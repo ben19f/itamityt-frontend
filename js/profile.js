@@ -6,15 +6,10 @@ if (!token) {
   window.location.href = "/login.php";
 }
 
-// Для дебага: покажем токен в консоли
-console.log("JWT token:", token);
-
 const list = document.getElementById("itemsList");
 const message = document.getElementById("message");
 const deleteBtn = document.getElementById("deleteAccountBtn");
 
-// -------------------------------
-// Вспомогательная функция для заголовков
 // -------------------------------
 function getAuthHeaders() {
   return {
@@ -24,55 +19,71 @@ function getAuthHeaders() {
 }
 
 // -------------------------------
-// Загрузка всех ссылок
+// Загрузка ссылок
 // -------------------------------
 async function loadItems() {
   try {
     const res = await fetch(`${API_URL}/items/`, {
-      method: "GET",
       headers: getAuthHeaders()
     });
 
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      throw new Error(err.detail || "Ошибка загрузки ссылок");
-    }
+    if (!res.ok) throw new Error("Ошибка загрузки");
 
     const items = await res.json();
     list.innerHTML = "";
 
-    if (!items || items.length === 0) {
-      list.textContent = "Ссылок пока нет";
+    if (!items.length) {
+      list.innerHTML = `<div class="empty-state">У вас пока нет ссылок</div>`;
       return;
     }
 
     items.forEach(item => {
-      const li = document.createElement("li");
       const redirectUrl = `${REDIRECT_URL}/${item.link_id}`;
-      li.innerHTML = `
-        <a href="${redirectUrl}" target="_blank">${item.name}</a>
-        <button onclick="deleteItem(${item.id})">Удалить</button>
+
+      const card = document.createElement("div");
+      card.className = "link-card";
+
+      card.innerHTML = `
+        <div class="link-info">
+          <div class="link-name">${item.name}</div>
+          <div class="link-url">${redirectUrl}</div>
+        </div>
+
+        <div class="link-actions">
+          <a href="${redirectUrl}" target="_blank" class="btn-small">Открыть</a>
+          <button onclick="copyLink('${redirectUrl}')" class="btn-small">Копировать</button>
+          <button onclick="deleteItem(${item.id})" class="btn-small danger">Удалить</button>
+        </div>
       `;
-      list.appendChild(li);
+
+      list.appendChild(card);
     });
 
   } catch (err) {
-    console.error(err);
-    message.style.color = "red";
     message.textContent = err.message;
   }
 }
 
 // -------------------------------
-// Добавление ссылки
+// Копирование
+// -------------------------------
+function copyLink(url) {
+  navigator.clipboard.writeText(url);
+  message.style.color = "green";
+  message.textContent = "Ссылка скопирована";
+}
+
+// -------------------------------
+// Добавление
 // -------------------------------
 document.getElementById("addItemForm").addEventListener("submit", async (e) => {
   e.preventDefault();
+
   const form = e.target;
 
   const body = {
-    name: form.name.value,
-    description: form.description.value
+    name: form.name.value.trim(),
+    description: form.description.value.trim()
   };
 
   try {
@@ -82,26 +93,25 @@ document.getElementById("addItemForm").addEventListener("submit", async (e) => {
       body: JSON.stringify(body)
     });
 
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      throw new Error(err.detail || "Ошибка добавления");
-    }
+    if (!res.ok) throw new Error("Ошибка добавления");
 
     message.style.color = "green";
     message.textContent = "Ссылка добавлена";
+
     form.reset();
     loadItems();
 
   } catch (err) {
-    message.style.color = "red";
     message.textContent = err.message;
   }
 });
 
 // -------------------------------
-// Удаление ссылки
+// Удаление
 // -------------------------------
 async function deleteItem(id) {
+  if (!confirm("Удалить ссылку?")) return;
+
   try {
     const res = await fetch(`${API_URL}/items/${id}`, {
       method: "DELETE",
@@ -115,6 +125,7 @@ async function deleteItem(id) {
 
     message.style.color = "green";
     message.textContent = "Ссылка удалена";
+
     loadItems();
 
   } catch (err) {
@@ -126,17 +137,17 @@ async function deleteItem(id) {
 // -------------------------------
 // Logout
 // -------------------------------
-document.getElementById("logoutBtn").addEventListener("click", () => {
+document.getElementById("logoutBtn").onclick = () => {
   localStorage.removeItem("token");
   window.location.href = "/login.php";
-});
+};
 
 // -------------------------------
 // Удаление аккаунта
 // -------------------------------
 if (deleteBtn) {
-  deleteBtn.addEventListener("click", async () => {
-    if (!confirm("Вы точно хотите удалить свой аккаунт? Это действие необратимо!")) return;
+  deleteBtn.onclick = async () => {
+    if (!confirm("Удалить аккаунт? Это навсегда")) return;
 
     try {
       const res = await fetch(`${API_URL}/users/delete/me`, {
@@ -144,23 +155,16 @@ if (deleteBtn) {
         headers: getAuthHeaders()
       });
 
-      if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        throw new Error(err.detail || "Ошибка удаления аккаунта");
-      }
+      if (!res.ok) throw new Error("Ошибка удаления");
 
       localStorage.removeItem("token");
-      alert("Аккаунт удален");
       window.location.href = "/index.php";
 
     } catch (err) {
-      message.style.color = "red";
       message.textContent = err.message;
     }
-  });
+  };
 }
 
-// -------------------------------
-// Автозагрузка
 // -------------------------------
 loadItems();

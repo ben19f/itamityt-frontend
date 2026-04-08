@@ -1,19 +1,43 @@
 <?php include 'header.php'; ?>  
 <?php include 'menu.php'; ?> 
- <div class="container">
-  <h2>Вход</h2>
 
-  <form id="loginForm">
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Пароль" required>
+<div class="container auth-page">
 
-    <button type="submit">Войти</button>
-  </form>
+  <div class="auth-card">
+    <h1>Вход</h1>
+    <p class="auth-subtitle">Войдите, чтобы управлять своими ссылками</p>
 
-  <p id="message"></p>
+    <form id="loginForm" class="auth-form">
+
+      <input 
+        type="email" 
+        name="email" 
+        placeholder="Email" 
+        required
+      >
+
+      <input 
+        type="password" 
+        name="password" 
+        placeholder="Пароль" 
+        required
+      >
+
+      <button type="submit" class="btn-primary">Войти</button>
+
+    </form>
+
+    <p id="message" class="form-message"></p>
+
+    <p class="auth-footer">
+      Нет аккаунта? <a href="/register.php">Зарегистрироваться</a>
+    </p>
+  </div>
+
 </div>
- <?php include 'footer.php'; ?>
-  <script src="/js/login.js"></script>
- 
+
+<?php include 'footer.php'; ?>
+
+<script src="/js/login.js"></script>
 </body>
 </html>
