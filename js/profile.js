@@ -118,7 +118,10 @@ async function deleteItem(id) {
       headers: getAuthHeaders()
     });
 
-    if (!res.ok) throw new Error("Ошибка удаления");
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.detail || "Ошибка удаления");
+    }
 
     message.style.color = "green";
     message.textContent = "Ссылка удалена";
@@ -126,6 +129,7 @@ async function deleteItem(id) {
     loadItems();
 
   } catch (err) {
+    message.style.color = "red";
     message.textContent = err.message;
   }
 }
