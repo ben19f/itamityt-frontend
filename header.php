@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>И там и тут — Главная</title>
+  <title>И там и тут — Главная!</title>
   <link rel="stylesheet" href="/css/all.css">
 </head>
 
