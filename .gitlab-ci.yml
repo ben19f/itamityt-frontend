@@ -15,8 +15,8 @@ build-image:
     - echo "REG_USER=[$REG_USER]"
     - echo "REG_PASS=[$REG_PASS]"
     - echo "$REG_PASS" | docker login 192.168.96.116:5000 --username "$REG_USER" --password-stdin
-    - docker build -t 192.168.96.116:5000/app/testimage:v0.2.1 .
+    - docker build -t 192.168.96.116:5000/app/frontend:v0.2.1 .
     # - docker tag test-image 192.168.96.116:5000/app/testimage:0.0.1
-    - docker push 192.168.96.116:5000/app/testimage:v0.2.1
+    - docker push 192.168.96.116:5000/app/frontend:v0.2.1
   rules:
     - if: '$CI_COMMIT_BRANCH == "zomzom11-main-patch-59481"'
