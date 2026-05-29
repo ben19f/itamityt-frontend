@@ -1,10 +1,3 @@
-# FROM nginx:alpine
-
-# COPY . /usr/share/nginx/html
-
-# EXPOSE 80
-
-
 # Используем готовый образ Nginx + PHP-FPM
 FROM richarvey/nginx-php-fpm:latest
 

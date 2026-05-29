@@ -8,19 +8,15 @@ build-image:
   tags:
     - docker
 
-#  script:
-#    - docker version
-#    - docker build -t test-image .
-#    - docker push 192.168.96.116:5000/feature/testimage:0.0.1
 
   script:
 
     - docker version
     - echo "REG_USER=[$REG_USER]"
     - echo "REG_PASS=[$REG_PASS]"
-#    - docker login 192.168.96.116:5000 -u "$REG_USER" -p "$REG_PASS" 
-#    - echo "$REG_PASS" | docker login 192.168.96.116:5000 -u "$REG_USER" --password-stdin
     - echo "$REG_PASS" | docker login 192.168.96.116:5000 --username "$REG_USER" --password-stdin
-    - docker build -t test-image .
-    - docker tag test-image 192.168.96.116:5000/app/testimage:0.0.1
-    - docker push 192.168.96.116:5000/app/testimage:0.0.1  
+    - docker build -t 192.168.96.116:5000/app/testimage:v0.2.1 .
+    # - docker tag test-image 192.168.96.116:5000/app/testimage:0.0.1
+    - docker push 192.168.96.116:5000/app/testimage:v0.2.1
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "zomzom11-main-patch-59481"'
