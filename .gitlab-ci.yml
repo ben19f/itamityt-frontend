@@ -3,7 +3,7 @@ stages:
 
 build-image:
   stage: build
-  image: docker:24
+  image: docker:24-cli
 
   tags:
     - docker
