@@ -8,6 +8,15 @@ build-image:
   tags:
     - docker
 
+#  script:
+#    - docker version
+#    - docker build -t test-image .
+#    - docker push 192.168.96.116:5000/feature/testimage:0.0.1
+
   script:
+
     - docker version
+    - docker login 192.168.96.116:5000  
     - docker build -t test-image .
+    - docker tag 192.168.96.116:5000/test-image app/testimage:0.0.1
+    - docker push 192.168.96.116:5000/app/testimage:0.0.1  
