@@ -18,5 +18,5 @@ build-image:
     - docker version
     - docker login 192.168.96.116:5000  
     - docker build -t test-image .
-    - docker tag 192.168.96.116:5000/test-image app/testimage:0.0.1
+    - docker tag test-image 192.168.96.116:5000/app/testimage:0.0.1
     - docker push 192.168.96.116:5000/app/testimage:0.0.1  
