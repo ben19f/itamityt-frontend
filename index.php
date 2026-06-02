@@ -9,8 +9,8 @@
   <!-- 🔥 HERO -->
   <section class="section hero">
     <div class="container">
-      <h1 class="title">Создай свою страницу ссылок за 1 минуту!</h1>
-      <p class="text">Все твои Telegram, VK, GitHub и сайты — в одном месте</p>
+      <h1 class="title">Создай свою страницу ссылок за 1 минуту</h1>
+      <p class="text">Все твои Telegram, VK, GitHub и сайты и т.д. — в одном месте</p>
 
       <a href="/register.php" class="button">Создать страницу</a>
     </div>
