@@ -1,6 +1,6 @@
 stages:
   - build
-  - update
+  # - update
 
 build-image:
   stage: build
