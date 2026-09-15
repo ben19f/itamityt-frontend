@@ -20,7 +20,7 @@
     <div id="itemsList" class="links-grid"></div>
   </section>
 
-  <!-- ➕ Добавление -->
+  <!-- ➕ Добавление  -->
   <section class="dashboard-section">
     <h2>Добавить ссылку</h2>
 
