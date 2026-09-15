@@ -5,7 +5,7 @@ services:
   frontend:
     build:
       # context: ../
-      dockerfile: docker/Dockerfile
+      dockerfile: Dockerfile
 
     container_name: itamityt_frontend
 
