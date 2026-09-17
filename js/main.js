@@ -1,7 +1,10 @@
 // const API_URL = "https://dev.itamityt.ru/api/public";
 // const REDIRECT_URL = "https://dev.itamityt.ru/rserv";
-const API_URL = "/api/public";
-const REDIRECT_URL = "/rserv";
+// const API_URL = "/api/public";
+// const REDIRECT_URL = "/rserv";
+const API_URL = "http://localhost:8100/api/public";
+const REDIRECT_URL = "http://localhost:8100/rserv";
+
 
 const searchBtn = document.getElementById("search-btn");
 const searchUsernameInput = document.getElementById("search-username");
