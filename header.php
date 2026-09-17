@@ -14,7 +14,7 @@
       <img src="/images/logo.png" alt="И там и тут" class="logo">
     </a>
   </div>
-  <!-- klfddk -->
+  <!-- klfddk... -->
   <!-- Yandex.Metrika counter -->
 <!-- <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
