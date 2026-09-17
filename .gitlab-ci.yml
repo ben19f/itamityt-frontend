@@ -26,6 +26,7 @@ build-image:
     # - if: '$CI_COMMIT_BRANCH == "dev" && $CI_COMMIT_TAG'
     # - if: $CI_COMMIT_TAG
     # - if: '$CI_COMMIT_BRANCH == "user_page"
+    # commit name enter
     - if: '$CI_COMMIT_BRANCH == "user_page" && $CI_COMMIT_MESSAGE =~ /build$/'
 
 # тут будет задача обновлять в инфра репозитории тег версии чтобы деплоить последнее
