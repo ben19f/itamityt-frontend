@@ -19,7 +19,7 @@ if (!username) {
     setTimeout(() => copyBtn.textContent = "Скопировать ссылку", 2000);
   });
 
-  fetch(`${API_URL}/profile/${username}`)
+  fetch(`${API_URL}/public/profile/${username}`)
     .then(res => {
       if (!res.ok) throw new Error("Пользователь не найден");
       return res.json();

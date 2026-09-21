@@ -66,6 +66,7 @@
 
 <?php include 'footer.php'; ?>
 
+<script src="/js/config.js"></script>
 <script src="/js/public_profile.js"></script>
 <script src="/js/main.js"></script>
 </body>

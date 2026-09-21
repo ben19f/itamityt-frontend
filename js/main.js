@@ -41,7 +41,7 @@ if (searchBtn && searchUsernameInput && messageEl) {
 const usersTrack = document.getElementById("users-cards");
 
 if (usersTrack) {
-  fetch(`${API_URL}/last-users`)
+  fetch(`${API_URL}/public/last-users`)
     .then(res => {
       if (!res.ok) throw new Error("Не удалось загрузить пользователей");
       return res.json();
