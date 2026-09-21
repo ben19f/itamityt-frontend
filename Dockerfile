@@ -7,6 +7,7 @@
 
 # Используем готовый образ Nginx + PHP-FPM
 FROM richarvey/nginx-php-fpm:latest
+COPY default.conf /etc/nginx/sites-available/default.conf
 
 # Копируем все файлы сайта внутрь контейнера
 COPY . /var/www/html

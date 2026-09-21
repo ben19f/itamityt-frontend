@@ -4,7 +4,10 @@ const profileTitle = document.getElementById("profile-title");
 const copyBtn = document.getElementById("copy-profile-link");
 
 const params = new URLSearchParams(window.location.search);
-const username = params.get("username");
+// const username = params.get("username");
+const username = window.location.pathname
+  .replace(/^\/uun\//, "")
+  .replace(/\/$/, "");
 
 if (!username) {
   messageEl.textContent = "Не указан пользователь";
@@ -12,12 +15,38 @@ if (!username) {
   profileTitle.textContent = `@${username}`;
 
   // копирование ссылки
-  copyBtn.addEventListener("click", () => {
-    const url = window.location.href;
-    navigator.clipboard.writeText(url);
+  copyBtn.addEventListener("click", async () => {
+  const url = window.location.href;
+
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(url);
+    } else {
+      const textarea = document.createElement("textarea");
+      textarea.value = url;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      textarea.remove();
+    }
+
     copyBtn.textContent = "Скопировано!";
-    setTimeout(() => copyBtn.textContent = "Скопировать ссылку", 2000);
-  });
+    setTimeout(() => {
+      copyBtn.textContent = "Скопировать ссылку";
+    }, 2000);
+
+  } catch (err) {
+    console.error("Не удалось скопировать ссылку:", err);
+    copyBtn.textContent = "Не удалось скопировать";
+
+    setTimeout(() => {
+      copyBtn.textContent = "Скопировать ссылку";
+    }, 2000);
+  }
+});
 
   fetch(`${API_URL}/public/profile/${username}`)
     .then(res => {

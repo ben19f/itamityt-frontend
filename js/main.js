@@ -20,13 +20,14 @@ if (searchBtn && searchUsernameInput && messageEl) {
       return;
     }
 
-    fetch(`${API_URL}/profile/${encodeURIComponent(username)}`)
+    fetch(`${API_URL}/public/profile/${encodeURIComponent(username)}`)
       .then(res => {
         if (!res.ok) throw new Error("Пользователь не найден");
         return res.json();
       })
       .then(() => {
-        window.location.href = `public_profile.php?username=${encodeURIComponent(username)}`;
+        // window.location.href = `public_profile.php?username=${encodeURIComponent(username)}`;
+        window.location.href = `/uun/${encodeURIComponent(username)}`;
       })
       .catch(err => {
         console.error(err);
@@ -81,7 +82,8 @@ if (usersTrack) {
         }
 
         card.addEventListener("click", () => {
-          window.location.href = `public_profile.php?username=${encodeURIComponent(user.username)}`;
+          // window.location.href = `public_profile.php?username=${encodeURIComponent(user.username)}`;
+          window.location.href = `/uun/${encodeURIComponent(user.username)}`;
         });
 
         usersTrack.appendChild(card);
