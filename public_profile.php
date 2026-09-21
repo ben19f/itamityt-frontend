@@ -9,7 +9,7 @@
     <div class="profile-avatar">
       <img
         id="profile-avatar"
-        src="/images/default-avatar.png"
+        src="/images/test-avatar.png"
         alt="Аватар пользователя"
       >
     </div>
