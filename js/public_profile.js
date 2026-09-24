@@ -25,7 +25,7 @@ if (!username) {
     .then(profile => {
 
       // =====================
-      // 👤 Данные профиляn
+      // 👤 Данные профиля
       // =====================
 
       profileTitle.textContent = `@${profile.username}`;
