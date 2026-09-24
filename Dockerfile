@@ -1,4 +1,4 @@
-# FROM nginx:alpine
+# FROM nginx:alpineb
 
 # COPY . /usr/share/nginx/html
 
