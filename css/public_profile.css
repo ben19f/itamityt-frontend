@@ -1,119 +1,367 @@
 .profile-page {
-  max-width: 500px;
-  margin: 40px auto;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+  box-sizing: border-box;
+}
+
+
+/*
+ * Все элементы профиля —
+ * независимые блоки.
+ *
+ * В будущем порядок можно менять.
+ */
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+/* =========================================
+   ОБЩИЙ БЛОК
+   ========================================= */
+
+.profile-block {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   АВАТАР
+   ========================================= */
+
+.profile-avatar-block {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  background: #eee;
+}
+
+.profile-avatar img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =========================================
+   ИМЯ
+   ========================================= */
+
+.profile-name-block {
   text-align: center;
 }
 
-.profile-header-block {
-  margin-bottom: 30px;
-}
-
-/* аватарка */
-.profile-avatar {
-  margin: 0 auto;
-  width: 160px;
-  height: 160px;
-  border-radius: 80px;
-}
-
 .profile-name {
-  margin-bottom: 5px;
+  margin: 0;
+
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   USERNAME
+   ========================================= */
+
+.profile-username-block {
+  text-align: center;
 }
 
 .profile-username {
-  margin-bottom: 10px;
+  color: #777;
+
+  font-size: 16px;
+  line-height: 1.3;
 }
 
 
-.owner-verify {
-  margin-bottom: 5px;
+/* =========================================
+   ВЕРИФИКАЦИЯ
+   ========================================= */
+
+.profile-verification-block {
+  display: flex;
+  justify-content: center;
+}
+
+.verify-status {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  color: #777;
+  font-size: 13px;
+}
+
+.verify-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.owner-verify-status,
+.service-verify-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .owner-verify-status {
-  color: red;
-  font-weight: bolder;
-  font-size: 14;
-}
-
-.service-verify {
-  margin-bottom: 5px;
+  color: #c62828;
+  background: #ffebee;
 }
 
 .service-verify-status {
-  color: green;
-  font-weight: bolder;
-  font-size: 14;
+  color: #2e7d32;
+  background: #e8f5e9;
 }
 
 
-.user-gallery {
-  display: flex;
-  flex-direction: row;
-  /* min-width: 310px; */
-}
+/* =========================================
+   ОПИСАНИЕ
+   ========================================= */
 
-.user-photo-card {
-  height: 70px; 
-  min-width: 40px;
-  border: solid 2px orange;
-  margin-right: 20px;
+.profile-description-block {
+  margin-top: 4px;
 }
 
 .profile-description {
-  margin-bottom: 10px;
+  margin: 0;
 
-  padding: 20px 10px;
-  border-radius: 10px;
-  background-color: rgb(184, 229, 233);
+  padding: 16px;
+
+  border-radius: 12px;
+
+  background: #e9f7f8;
+
+  color: #333;
+
+  line-height: 1.5;
+
+  text-align: left;
+
+  overflow-wrap: anywhere;
 }
 
 
-.profile-subtitle {
-  color: #777;
-  margin-bottom: 15px;
+/* =========================================
+   ГАЛЕРЕЯ
+   ========================================= */
+
+.profile-gallery-block {
+  width: 100%;
 }
+
+.user-gallery {
+  display: grid;
+
+  /*
+   * На мобильном:
+   * одна большая фотография
+   */
+  grid-template-columns: 1fr;
+
+  gap: 8px;
+}
+
+.user-photo-card {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  background: #eee;
+}
+
+.user-photo-card img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =========================================
+   ССЫЛКИ
+   ========================================= */
 
 .profile-links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+
+  gap: 10px;
 }
 
-
-.profile-extra {
-  margin-top: 10px;
-  padding: 20px 10px;
-  border-radius: 10px;
-  background-color: rgb(212, 191, 163);
-}
-
-
-/* 🔥 САМОЕ ВАЖНОЕ */
 .profile-link-btn {
   display: block;
-  padding: 14px;
-  border-radius: 10px;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 14px 16px;
+
+  border-radius: 12px;
+
   background: #2b6cff;
   color: #fff;
+
   text-decoration: none;
+
   font-weight: 500;
-  transition: 0.2s;
+  text-align: center;
+
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease;
 }
 
 .profile-link-btn:hover {
   background: #1f4ed8;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ
+   ========================================= */
+
+.profile-extra {
+  padding: 16px;
+
+  border-radius: 12px;
+
+  background: #f4eee6;
+
+  line-height: 1.5;
+
+  text-align: left;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   ПОДЕЛИТЬСЯ
+   ========================================= */
+
+.profile-share-block {
+  display: flex;
+  justify-content: center;
+
+  padding-top: 4px;
 }
 
 .btn-secondary {
+  padding: 10px 16px;
+
+  border: 0;
+  border-radius: 10px;
+
   background: #eee;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
+
+  color: #333;
+
+  font-size: 14px;
+
   cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
 }
 
+.btn-secondary:hover {
+  background: #e2e2e2;
+}
+
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================
+   ПУСТОЕ СОСТОЯНИЕ
+   ========================================= */
+
 .empty-state {
-  color: #999;
   padding: 20px;
+
+  color: #999;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   СООБЩЕНИЯ
+   ========================================= */
+
+#message {
+  margin-top: 16px;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   DESKTOP
+   ========================================= */
+
+@media (min-width: 600px) {
+
+  .profile-page {
+    padding-top: 40px;
+  }
+
+  .profile-avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .profile-name {
+    font-size: 32px;
+  }
+
+  /*
+   * На большом экране галерея
+   * уже не должна выглядеть как
+   * вертикальный список.
+   */
+  .user-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
 }

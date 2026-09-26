@@ -28,7 +28,7 @@
       <div class="service-verify"><span class="service-verify-status">Y      </span><span>Проверено сервисом itamityt.ru</span></div>
     </div>
 
-
+<!-- галлерея пользователя  -->
     <div class="user-gallery">
       <div class="user-photo-card user-photo-2">photo 1</div>
       <div class="user-photo-card user-photo-2">photo 2</div>
