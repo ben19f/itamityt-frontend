@@ -75,9 +75,13 @@ function renderAvatar(profile) {
 
   if (
     profile.avatar_url &&
-    typeof profile.avatar_url === "string"
+    typeof profile.avatar_url === "string" &&
+    profile.avatar_url.trim() !== ""
   ) {
-    profileAvatar.src = profile.avatar_url;
+
+    profileAvatar.src =
+      profile.avatar_url.trim();
+
   }
 
 }
@@ -101,6 +105,7 @@ function renderName(profile) {
 
   } else {
 
+    profileName.textContent = "";
     profileNameBlock.hidden = true;
 
   }
@@ -134,7 +139,6 @@ function renderUsername(profile) {
 // =====================================================
 // ВЕРИФИКАЦИЯ
 // =====================================================
-
 
 function renderVerification(profile) {
 
@@ -257,11 +261,15 @@ function renderGallery(photos) {
 
   gallery.innerHTML = "";
 
-  if (!Array.isArray(photos) || photos.length === 0) {
+
+  if (
+    !Array.isArray(photos) ||
+    photos.length === 0
+  ) {
 
     galleryBlock.hidden = true;
-    return;
 
+    return;
   }
 
 
@@ -270,11 +278,47 @@ function renderGallery(photos) {
     .slice(0, 5)
     .forEach(photo => {
 
+      let photoUrl = null;
+
+
+      // -----------------------------------------
+      // Текущий формат backend:
+      //
+      // "photos": [
+      //   "https://s3....jpg"
+      // ]
+      // -----------------------------------------
+
       if (
-        !photo ||
-        typeof photo.url !== "string" ||
-        photo.url.trim() === ""
+        typeof photo === "string" &&
+        photo.trim() !== ""
       ) {
+
+        photoUrl = photo.trim();
+
+      }
+
+
+      // -----------------------------------------
+      // Поддерживаем также старый формат:
+      //
+      // { "url": "https://..." }
+      //
+      // Это можно оставить для совместимости.
+      // -----------------------------------------
+
+      else if (
+        photo &&
+        typeof photo.url === "string" &&
+        photo.url.trim() !== ""
+      ) {
+
+        photoUrl = photo.url.trim();
+
+      }
+
+
+      if (!photoUrl) {
         return;
       }
 
@@ -282,25 +326,44 @@ function renderGallery(photos) {
       const card =
         document.createElement("div");
 
-      card.className = "user-photo-card";
+      card.className =
+        "user-photo-card";
 
 
       const img =
         document.createElement("img");
 
-      img.src = photo.url;
+      img.src = photoUrl;
+
       img.alt = "";
+
       img.loading = "lazy";
 
 
+      // Если изображение из S3 недоступно,
+      // не оставляем битую карточку.
+      img.addEventListener(
+        "error",
+        () => {
+          card.remove();
+
+          if (gallery.children.length === 0) {
+            galleryBlock.hidden = true;
+          }
+        }
+      );
+
+
       card.appendChild(img);
+
       gallery.appendChild(card);
 
     });
 
 
   // Показываем блок только если
-  // реально добавилась хотя бы одна фотография
+  // реально добавилась фотография
+
   galleryBlock.hidden =
     gallery.children.length === 0;
 
@@ -312,24 +375,19 @@ function renderGallery(photos) {
 // =====================================================
 
 function renderDescription(profile) {
+  const description =
+    profile.profile_description ?? profile.description;
 
   if (
-    typeof profile.profile_description === "string" &&
-    profile.profile_description.trim() !== ""
+    typeof description === "string" &&
+    description.trim() !== ""
   ) {
-
-    profileDescription.textContent =
-      profile.profile_description.trim();
-
+    profileDescription.textContent = description.trim();
     descriptionBlock.hidden = false;
-
   } else {
-
     profileDescription.textContent = "";
     descriptionBlock.hidden = true;
-
   }
-
 }
 
 
@@ -348,6 +406,7 @@ function renderLinks(profile) {
   ) {
 
     linksBlock.hidden = true;
+
     return;
 
   }
@@ -365,21 +424,29 @@ function renderLinks(profile) {
       typeof item.name !== "string" ||
       item.name.trim() === ""
     ) {
+
       return;
+
     }
 
 
     const link =
       document.createElement("a");
 
+
     link.href =
       `${REDIRECT_URL}/${encodeURIComponent(item.link_id)}`;
+
 
     link.textContent =
       item.name.trim();
 
+
     link.target = "_blank";
-    link.rel = "noopener noreferrer";
+
+    link.rel =
+      "noopener noreferrer";
+
 
     link.classList.add(
       "profile-link-btn"
@@ -404,26 +471,20 @@ function renderLinks(profile) {
 // =====================================================
 
 function renderExtra(profile) {
+  const extra =
+    profile.profile_extra_info ?? profile.extra;
 
   if (
-    typeof profile.profile_extra_info === "string" &&
-    profile.profile_extra_info.trim() !== ""
+    typeof extra === "string" &&
+    extra.trim() !== ""
   ) {
-
-    profileExtra.textContent =
-      profile.profile_extra_info.trim();
-
+    profileExtra.textContent = extra.trim();
     extraBlock.hidden = false;
-
   } else {
-
     profileExtra.textContent = "";
     extraBlock.hidden = true;
-
   }
-
 }
-
 
 // =====================================================
 // ВЕСЬ ПРОФИЛЬ
@@ -445,7 +506,7 @@ function renderProfile(profile) {
 
 
   // =========================================
-  // СТАНДАРТНЫЙ ПОРЯДОК ОСТАЛЬНЫХ БЛОКОВ
+  // СТАНДАРТНЫЙ ПОРЯДОК
   // =========================================
 
   const defaultBlocks = [
@@ -482,8 +543,7 @@ function renderProfile(profile) {
 
 
   // =========================================
-  // ЕСЛИ BACKEND НЕ ПЕРЕДАЛ ПОСЛЕДОВАТЕЛЬНОСТЬ
-  // ИЛИ МАССИВ ПУСТОЙ
+  // BACKEND НЕ ПЕРЕДАЛ BLOCKS
   // =========================================
 
   if (
@@ -502,12 +562,13 @@ function renderProfile(profile) {
 
 
   // =========================================
-  // ЕСЛИ BACKEND ПЕРЕДАЛ ПОСЛЕДОВАТЕЛЬНОСТЬ
+  // BACKEND ПЕРЕДАЛ BLOCKS
   // =========================================
 
   profile.blocks.forEach(block => {
 
-    const renderer = renderers[block];
+    const renderer =
+      renderers[block];
 
     if (renderer) {
       renderer();
@@ -516,6 +577,7 @@ function renderProfile(profile) {
   });
 
 }
+
 
 // =====================================================
 // ЗАГРУЗКА ПРОФИЛЯ
@@ -543,7 +605,11 @@ async function loadProfile() {
     if (!response.ok) {
 
       if (response.status === 404) {
-        throw new Error("Пользователь не найден");
+
+        throw new Error(
+          "Пользователь не найден"
+        );
+
       }
 
       throw new Error(
@@ -566,6 +632,7 @@ async function loadProfile() {
       "Ошибка загрузки профиля:",
       error
     );
+
 
     messageEl.textContent =
       error.message ||
