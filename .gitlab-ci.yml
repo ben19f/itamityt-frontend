@@ -20,22 +20,22 @@ build-test-image:
     - if: '$CI_COMMIT_MESSAGE =~ /build(\r?\n)?$/'
 
 #------------------------------------------
-  build-tag-image:
-    stage: build-tag
-    image: docker:24-cli
+build-tag-image:
+  stage: build-tag
+  image: docker:24-cli
 
-    tags:
-      - docker
+  tags:
+    - docker
 
 
-    script:
+  script:
 
-      - IMAGE=192.168.96.116:5000/itamityt/frontend
-      - docker version
-      - docker build -t $IMAGE:$CI_COMMIT_TAG .
-      - docker push $IMAGE:$CI_COMMIT_TAG
-    rules:
-      - if: $CI_COMMIT_TAG
+    - IMAGE=192.168.96.116:5000/itamityt/frontend
+    - docker version
+    - docker build -t $IMAGE:$CI_COMMIT_TAG .
+    - docker push $IMAGE:$CI_COMMIT_TAG
+  rules:
+    - if: $CI_COMMIT_TAG
 
 
 
