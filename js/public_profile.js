@@ -135,29 +135,49 @@ function renderUsername(profile) {
 // ВЕРИФИКАЦИЯ
 // =====================================================
 
+
 function renderVerification(profile) {
 
   let hasVerification = false;
 
 
-  // -------------------------
-  // Проверено пользователем
-  // -------------------------
+  // =========================
+  // Проверка пользователя
+  // =========================
 
-  if (typeof profile.owner_verified === "boolean") {
+  if (
+    profile.owner_verified === "Y" ||
+    profile.owner_verified === "X"
+  ) {
 
     ownerVerify.hidden = false;
     hasVerification = true;
 
-    if (profile.owner_verified) {
+    ownerVerifyStatus.classList.remove(
+      "verify-status-yes",
+      "verify-status-no"
+    );
+
+
+    if (profile.owner_verified === "Y") {
 
       ownerVerifyStatus.textContent = "✓";
+
+      ownerVerifyStatus.classList.add(
+        "verify-status-yes"
+      );
+
       ownerVerifyText.textContent =
         "Проверено пользователем";
 
     } else {
 
       ownerVerifyStatus.textContent = "×";
+
+      ownerVerifyStatus.classList.add(
+        "verify-status-no"
+      );
+
       ownerVerifyText.textContent =
         "Не проверено пользователем";
 
@@ -170,24 +190,43 @@ function renderVerification(profile) {
   }
 
 
-  // -------------------------
-  // Проверено сервисом
-  // -------------------------
+  // =========================
+  // Проверка сервисом
+  // =========================
 
-  if (typeof profile.service_verified === "boolean") {
+  if (
+    profile.service_verified === "Y" ||
+    profile.service_verified === "X"
+  ) {
 
     serviceVerify.hidden = false;
     hasVerification = true;
 
-    if (profile.service_verified) {
+    serviceVerifyStatus.classList.remove(
+      "verify-status-yes",
+      "verify-status-no"
+    );
+
+
+    if (profile.service_verified === "Y") {
 
       serviceVerifyStatus.textContent = "✓";
+
+      serviceVerifyStatus.classList.add(
+        "verify-status-yes"
+      );
+
       serviceVerifyText.textContent =
         "Проверено сервисом itamityt.ru";
 
     } else {
 
       serviceVerifyStatus.textContent = "×";
+
+      serviceVerifyStatus.classList.add(
+        "verify-status-no"
+      );
+
       serviceVerifyText.textContent =
         "Не проверено сервисом itamityt.ru";
 
@@ -200,12 +239,13 @@ function renderVerification(profile) {
   }
 
 
-  // -------------------------
-  // Весь блок
-  // -------------------------
+  // =========================
+  // Показываем общий блок
+  // только если есть данные
+  // =========================
 
-  verificationBlock.hidden = !hasVerification;
-
+  verificationBlock.hidden =
+    !hasVerification;
 }
 
 
