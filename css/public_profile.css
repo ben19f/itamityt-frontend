@@ -1,62 +1,383 @@
 .profile-page {
-  max-width: 500px;
-  margin: 40px auto;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+  box-sizing: border-box;
+}
+
+
+/*
+ * Все элементы профиля —
+ * независимые блоки.
+ *
+ * В будущем порядок можно менять.
+ */
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+/* =========================================
+   ОБЩИЙ БЛОК
+   ========================================= */
+
+.profile-block {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   АВАТАР
+   ========================================= */
+
+.profile-avatar-block {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  background: #eee;
+}
+
+.profile-avatar img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =========================================
+   ИМЯ
+   ========================================= */
+
+.profile-name-block {
   text-align: center;
 }
 
-.profile-header-block {
-  margin-bottom: 30px;
+.profile-name {
+  margin: 0;
+
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+
+  overflow-wrap: anywhere;
 }
 
-/* аватарка */
-.profile-avatar {
-  margin: 0 auto;
-  width: 160px;
-  height: 160px;
-  border-radius: 80px;
+
+/* =========================================
+   USERNAME
+   ========================================= */
+
+.profile-username-block {
+  text-align: center;
 }
 
-
-.profile-subtitle {
+.profile-username {
   color: #777;
-  margin-bottom: 15px;
+
+  font-size: 16px;
+  line-height: 1.3;
 }
+
+
+/* =========================================
+   ВЕРИФИКАЦИЯ
+   ========================================= */
+
+.profile-verification-block {
+  display: flex;
+  justify-content: center;
+}
+
+.verify-status {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #777;
+  font-size: 13px;
+}
+
+.verify-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.owner-verify-status,
+.service-verify-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Y — подтверждено */
+
+.verify-status-yes {
+  color: #2e7d32;
+  background: #e8f5e9;
+}
+
+/* X — не подтверждено */
+
+.verify-status-no {
+  color: #c62828;
+  background: #ffebee;
+}
+
+/* =========================================
+   ОПИСАНИЕ
+   ========================================= */
+
+.profile-description-block {
+  margin-top: 4px;
+}
+
+.profile-description {
+  margin: 0;
+
+  padding: 16px;
+
+  border-radius: 12px;
+
+  background: #e9f7f8;
+
+  color: #333;
+
+  line-height: 1.5;
+
+  text-align: left;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   ГАЛЕРЕЯ
+   ========================================= */
+
+.profile-gallery-block {
+  width: 100%;
+}
+
+.user-gallery {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  width: 100%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding-bottom: 4px;
+
+  /*
+   * Чтобы прокрутка на мобильном
+   * ощущалась естественно
+   */
+  -webkit-overflow-scrolling: touch;
+
+  /*
+   * Не показываем scrollbar в Firefox
+   */
+  scrollbar-width: none;
+}
+
+.user-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.user-photo-card {
+  flex: 0 0 120px;
+
+  width: 120px;
+  height: 120px;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  background: #eee;
+}
+
+.user-photo-card img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* =========================================
+   ССЫЛКИ
+   ========================================= */
 
 .profile-links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+
+  gap: 10px;
 }
 
-
-
-
-/* 🔥 САМОЕ ВАЖНОЕ */
 .profile-link-btn {
   display: block;
-  padding: 14px;
-  border-radius: 10px;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 14px 16px;
+
+  border-radius: 12px;
+
   background: #2b6cff;
   color: #fff;
+
   text-decoration: none;
+
   font-weight: 500;
-  transition: 0.2s;
+  text-align: center;
+
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease;
 }
 
 .profile-link-btn:hover {
   background: #1f4ed8;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ
+   ========================================= */
+
+.profile-extra {
+  padding: 16px;
+
+  border-radius: 12px;
+
+  background: #f4eee6;
+
+  line-height: 1.5;
+
+  text-align: left;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   ПОДЕЛИТЬСЯ
+   ========================================= */
+
+.profile-share-block {
+  display: flex;
+  justify-content: center;
+
+  padding-top: 4px;
 }
 
 .btn-secondary {
+  padding: 10px 16px;
+
+  border: 0;
+  border-radius: 10px;
+
   background: #eee;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
+
+  color: #333;
+
+  font-size: 14px;
+
   cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
 }
 
+.btn-secondary:hover {
+  background: #e2e2e2;
+}
+
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================
+   ПУСТОЕ СОСТОЯНИЕ
+   ========================================= */
+
 .empty-state {
-  color: #999;
   padding: 20px;
+
+  color: #999;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   СООБЩЕНИЯ
+   ========================================= */
+
+#message {
+  margin-top: 16px;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   DESKTOP
+   ========================================= */
+
+@media (min-width: 600px) {
+
+  .profile-page {
+    padding-top: 40px;
+  }
+
+  .profile-avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .profile-name {
+    font-size: 32px;
+  }
+
+  /*
+   * На большом экране галерея
+   * уже не должна выглядеть как
+   * вертикальный список.
+   */
+  .user-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
 }

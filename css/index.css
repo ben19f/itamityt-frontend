@@ -1,47 +1,452 @@
-/* HERO */
+/* =========================================
+   HERO
+   ========================================= */
+
 .hero {
   text-align: center;
 }
 
-/* SEARCH */
+
+/* =========================================
+   SEARCH
+   ========================================= */
+
 .search-block {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* EXAMPLE */
-.example-card {
+#message {
+  text-align: center;
+}
+
+
+/* =========================================
+   ПРИМЕР ПРОФИЛЯ
+   ========================================= */
+
+.example-profile {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  gap: 16px;
+
+  padding: 24px 16px;
+
+  border: 1px solid #eee;
+  border-radius: 16px;
+  background: var(--card-bg);
+}
+
+
+/* =========================================
+   АВАТАР
+   ========================================= */
+
+.example-profile-avatar-block {
+  display: flex;
+  justify-content: center;
+}
+
+.example-profile-avatar {
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  background: #eee;
+}
+
+.example-profile-avatar img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =========================================
+   ИМЯ
+   ========================================= */
+
+.example-profile-name-block {
+  text-align: center;
+}
+
+.example-profile-name {
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   USERNAME
+   ========================================= */
+
+.example-profile-username {
+  color: #777;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+
+/* =========================================
+   ВЕРИФИКАЦИЯ
+   ========================================= */
+
+.example-profile-verification {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  color: #777;
+  font-size: 13px;
+}
+
+.example-verify-item {
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 6px;
+}
+
+.example-verify-status {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.example-verify-yes {
+  color: #2e7d32;
+  background: #e8f5e9;
+}
+
+
+/* =========================================
+   ГАЛЕРЕЯ
+   ========================================= */
+
+.example-profile-gallery {
+  display: flex;
+
+  width: 100%;
+
+  gap: 10px;
+
+  overflow: hidden;
+}
+
+.example-photo {
+  flex: 1 1 0;
+
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+
+  border-radius: 12px;
+  overflow: hidden;
+
+  background: #eee;
+}
+
+.example-photo img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =========================================
+   ОПИСАНИЕ
+   ========================================= */
+
+.example-profile-description {
+  width: 100%;
+
+  padding: 16px;
+
+  border-radius: 12px;
+
+  background: #e9f7f8;
+
+  color: #333;
+
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   ССЫЛКИ
+   ========================================= */
+
+.example-profile-links {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
   gap: 10px;
 }
 
-/* ADVANTAGES */
+.example-profile-link {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border-radius: 12px;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  text-align: center;
+  font-weight: 500;
+}
+
+
+/* =========================================
+   SHARE
+   ========================================= */
+
+.example-profile-share {
+  margin-top: 4px;
+}
+
+
+/* =========================================
+   ADVANTAGES
+   ========================================= */
+
 .advantages-grid {
   grid-template-columns: 1fr;
 }
 
-/* USERS */
-.carousel {
+
+/* =========================================
+   НОВЫЕ ПОЛЬЗОВАТЕЛИ
+   ========================================= */
+
+.users-carousel {
   display: flex;
+
   align-items: center;
-  justify-content: space-between;
+
   gap: 10px;
 }
 
-.carousel-window {
+.users-carousel-window {
   flex: 1;
+
+  min-width: 0;
+
   overflow: hidden;
 }
 
-.carousel-cards {
+.users-carousel-cards {
   display: flex;
-  gap: 10px;
+
+  gap: 12px;
+
+  transition: transform 0.4s ease;
 }
 
-/* CTA */
+
+/* =========================================
+   КАРТОЧКА ПОЛЬЗОВАТЕЛЯ
+   ========================================= */
+
+.user-card {
+  flex: 0 0 150px;
+
+  width: 150px;
+
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 8px;
+
+  border: 1px solid #eee;
+  border-radius: 14px;
+
+  background: var(--card-bg);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Аватар пользователя */
+
+.user-card-avatar {
+  width: 80px;
+  height: 80px;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  background: #eee;
+
+  flex-shrink: 0;
+}
+
+.user-card-avatar img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* Username */
+
+.user-card-username {
+  width: 100%;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  color: #777;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* Имя организации / пользователя */
+
+.user-card-name {
+  width: 100%;
+
+  text-align: center;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* Кнопки карусели */
+
+.users-carousel-button {
+  flex: 0 0 auto;
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  cursor: pointer;
+
+  font-size: 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.users-carousel-button:hover {
+  background: var(--primary-hover);
+}
+
+
+/* =========================================
+   CTA
+   ========================================= */
+
 .cta {
   text-align: center;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 599px) {
+
+  .example-profile {
+    padding: 20px 12px;
+  }
+
+  .example-profile-name {
+    font-size: 24px;
+  }
+
+  .example-profile-gallery {
+    overflow-x: auto;
+
+    scrollbar-width: none;
+  }
+
+  .example-profile-gallery::-webkit-scrollbar {
+    display: none;
+  }
+
+  .example-photo {
+    flex: 0 0 100px;
+
+    width: 100px;
+    height: 100px;
+  }
+
+  .user-card {
+    flex-basis: 130px;
+    width: 130px;
+  }
+
+  .user-card-avatar {
+    width: 70px;
+    height: 70px;
+  }
+
 }

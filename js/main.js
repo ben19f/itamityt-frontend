@@ -1,136 +1,443 @@
-const searchBtn = document.getElementById("search-btn");
-const searchUsernameInput = document.getElementById("search-username");
-const messageEl = document.getElementById("message");
+// =======================================
+// 🔍 ПОИСК ПОЛЬЗОВАТЕЛЯ
+// =======================================
 
-// =====================
-// 🔍 Поиск пользователя
-// =====================
-if (searchBtn && searchUsernameInput && messageEl) {
-  searchBtn.addEventListener("click", () => {
-    let username = searchUsernameInput.value.trim();
+const searchBtn =
+  document.getElementById("search-btn");
+
+const searchUsernameInput =
+  document.getElementById("search-username");
+
+const messageEl =
+  document.getElementById("message");
+
+
+if (
+  searchBtn &&
+  searchUsernameInput &&
+  messageEl
+) {
+
+  searchBtn.addEventListener("click", async () => {
+
+    let username =
+      searchUsernameInput.value.trim();
+
     messageEl.textContent = "";
 
-    // Удаляем символ @ в начале строки, если он есть
-    if (username.startsWith('@')) {
+
+    // Убираем @
+
+    if (username.startsWith("@")) {
       username = username.substring(1);
     }
 
+
     if (!username) {
-      messageEl.textContent = "Введите username";
+
+      messageEl.textContent =
+        "Введите username";
+
       return;
     }
 
-    fetch(`${API_URL}/public/profile/${encodeURIComponent(username)}`)
-      .then(res => {
-        if (!res.ok) throw new Error("Пользователь не найден");
-        return res.json();
-      })
-      .then(() => {
-        // window.location.href = `public_profile.php?username=${encodeURIComponent(username)}`;
-        window.location.href = `/uun/${encodeURIComponent(username)}`;
-      })
-      .catch(err => {
-        console.error(err);
-        messageEl.textContent = err.message;
-      });
+
+    try {
+
+      const response = await fetch(
+        `${API_URL}/public/profile/${encodeURIComponent(username)}`
+      );
+
+
+      if (!response.ok) {
+        throw new Error("Пользователь не найден");
+      }
+
+
+      window.location.href =
+        `/uun/${encodeURIComponent(username)}`;
+
+
+    } catch (error) {
+
+      console.error(error);
+
+      messageEl.textContent =
+        error.message;
+
+    }
+
   });
+
 }
 
+
 // =======================================
-// 👤 Карусель пользователей
+// 👤 НОВЫЕ ПОЛЬЗОВАТЕЛИ
 // =======================================
-const usersTrack = document.getElementById("users-cards");
+
+const usersTrack =
+  document.getElementById("users-cards");
+
+const usersMessage =
+  document.getElementById("users-message");
 
 if (usersTrack) {
+
   fetch(`${API_URL}/public/last-users`)
-    .then(res => {
-      if (!res.ok) throw new Error("Не удалось загрузить пользователей");
-      return res.json();
+
+    .then(response => {
+
+      if (!response.ok) {
+        throw new Error(
+          "Не удалось загрузить пользователей"
+        );
+      }
+
+      return response.json();
+
     })
+
     .then(users => {
-      if (!users || !users.length) {
-        usersTrack.textContent = "Нет пользователей";
+
+      usersTrack.innerHTML = "";
+
+      if (usersMessage) {
+        usersMessage.textContent = "";
+      }
+
+      if (
+        !Array.isArray(users) ||
+        users.length === 0
+      ) {
+
+        if (usersMessage) {
+          usersMessage.textContent =
+            "Нет пользователей";
+        }
+
         return;
       }
 
-      const last4 = users.slice(0, 4);
+      users
+        .slice(0, 4)
+        .forEach(user => {
 
-      last4.forEach(user => {
-        const card = document.createElement("div");
-        card.classList.add("portfolio-carousel__card--sites");
+          const card =
+            document.createElement("div");
 
-        const title = document.createElement("h3");
-        title.className = "portfolio-carousel__card-title";
-        title.textContent = `@${user.username}`;
-        card.appendChild(title);
+          card.className = "user-card";
 
-        if (user.items && user.items.length) {
-          user.items.slice(0, 7).forEach(item => {
-            const p = document.createElement("p");
-            p.className = "portfolio-carousel__card-description";
 
-            const a = document.createElement("a");
-            a.href = `${REDIRECT_URL}/${item.link_id}`;
-            a.textContent = item.name;
-            a.target = "_blank";
+          // Аватар
 
-            a.addEventListener("click", e => e.stopPropagation());
+          const avatar =
+            document.createElement("div");
 
-            p.appendChild(a);
-            card.appendChild(p);
+          avatar.className =
+            "user-card-avatar";
+
+          const avatarImg =
+            document.createElement("img");
+
+          avatarImg.src =
+            user.avatar_url ||
+            "/images/test-avatar.png";
+
+          avatarImg.alt =
+            user.display_name ||
+            user.username ||
+            "";
+
+          avatarImg.loading = "lazy";
+
+          avatar.appendChild(avatarImg);
+          card.appendChild(avatar);
+
+
+          // Username
+
+          const username =
+            document.createElement("div");
+
+          username.className =
+            "user-card-username";
+
+          username.textContent =
+            `@${user.username}`;
+
+          card.appendChild(username);
+
+
+          // Display name
+
+          if (
+            typeof user.display_name === "string" &&
+            user.display_name.trim() !== ""
+          ) {
+
+            const name =
+              document.createElement("div");
+
+            name.className =
+              "user-card-name";
+
+            name.textContent =
+              user.display_name.trim();
+
+            card.appendChild(name);
+          }
+
+
+          // Переход в профиль
+
+          card.addEventListener("click", () => {
+
+            window.location.href =
+              `/uun/${encodeURIComponent(
+                user.username
+              )}`;
+
           });
-        }
 
-        card.addEventListener("click", () => {
-          // window.location.href = `public_profile.php?username=${encodeURIComponent(user.username)}`;
-          window.location.href = `/uun/${encodeURIComponent(user.username)}`;
+
+          usersTrack.appendChild(card);
+
         });
 
-        usersTrack.appendChild(card);
-      });
+
+      // Запускаем карусель
 
       initUsersCarousel();
+
     })
-    .catch(err => {
-      console.error(err);
-      usersTrack.textContent = "Ошибка загрузки пользователей";
+
+    .catch(error => {
+
+      console.error(error);
+
+      usersTrack.innerHTML = "";
+
+      if (usersMessage) {
+        usersMessage.textContent =
+          "Ошибка загрузки пользователей";
+      }
+
     });
+
 }
 
-// =======================
-// 🎠 Логика карусели
-// =======================
+
+// =======================================
+// 🎠 КАРУСЕЛЬ ПОЛЬЗОВАТЕЛЕЙ
+// =======================================
+
+// =======================================
+// 🎠 КАРУСЕЛЬ ПОЛЬЗОВАТЕЛЕЙ
+// =======================================
+
 function initUsersCarousel() {
-  const track = document.getElementById("users-cards");
-  const cards = track.querySelectorAll(".portfolio-carousel__card--sites");
-  const prevBtn = document.getElementById("users-btn--prev");
-  const nextBtn = document.getElementById("users-btn--next");
 
-  if (!cards.length || !prevBtn || !nextBtn) return;
+  const track =
+    document.getElementById("users-cards");
 
-  const cardWidth = cards[0].offsetWidth + 30;
-  let index = 0;
+  const prevBtn =
+    document.getElementById("users-btn--prev");
 
-  function update() {
-    track.style.transform = `translateX(${-index * cardWidth}px)`;
+  const nextBtn =
+    document.getElementById("users-btn--next");
+
+
+  if (
+    !track ||
+    !prevBtn ||
+    !nextBtn
+  ) {
+    return;
   }
 
-  nextBtn.addEventListener("click", () => {
-    index++;
-    if (index > cards.length - 2) index = 0;
-    update();
-  });
 
-  prevBtn.addEventListener("click", () => {
+  const cards =
+    track.querySelectorAll(".user-card");
+
+
+  if (!cards.length) {
+    return;
+  }
+
+
+  let index = 0;
+
+
+  // ---------------------------------------
+  // Размер одной карточки + gap
+  // ---------------------------------------
+
+  function getCardStep() {
+
+    const card =
+      cards[0];
+
+    const style =
+      window.getComputedStyle(track);
+
+    const gap =
+      parseFloat(style.gap) || 0;
+
+    return card.offsetWidth + gap;
+  }
+
+
+  // ---------------------------------------
+  // Сколько карточек видно
+  // ---------------------------------------
+
+  function getVisibleCards() {
+
+    const windowElement =
+      track.parentElement;
+
+    const cardWidth =
+      cards[0].offsetWidth;
+
+    const gap =
+      parseFloat(
+        window.getComputedStyle(track).gap
+      ) || 0;
+
+
+    return Math.max(
+      1,
+      Math.floor(
+        (windowElement.offsetWidth + gap) /
+        (cardWidth + gap)
+      )
+    );
+  }
+
+
+  // ---------------------------------------
+  // Максимальная позиция
+  // ---------------------------------------
+
+  function getMaxIndex() {
+
+    const visibleCards =
+      getVisibleCards();
+
+    return Math.max(
+      0,
+      cards.length - visibleCards
+    );
+  }
+
+
+  // ---------------------------------------
+  // Обновление
+  // ---------------------------------------
+
+  function update() {
+
+    const step =
+      getCardStep();
+
+    track.style.transform =
+      `translateX(${-index * step}px)`;
+  }
+
+
+  // ---------------------------------------
+  // Вперёд
+  // ---------------------------------------
+
+  function next() {
+
+    const maxIndex =
+      getMaxIndex();
+
+    if (maxIndex === 0) {
+      return;
+    }
+
+    index++;
+
+    if (index > maxIndex) {
+      index = 0;
+    }
+
+    update();
+  }
+
+
+  // ---------------------------------------
+  // Назад
+  // ---------------------------------------
+
+  function prev() {
+
+    const maxIndex =
+      getMaxIndex();
+
+    if (maxIndex === 0) {
+      return;
+    }
+
     index--;
-    if (index < 0) index = cards.length - 2;
-    update();
-  });
 
-  // автопрокрутка
-  setInterval(() => {
-    index++;
-    if (index > cards.length - 2) index = 0;
+    if (index < 0) {
+      index = maxIndex;
+    }
+
     update();
+  }
+
+
+  // ---------------------------------------
+  // Кнопки
+  // ---------------------------------------
+
+  nextBtn.addEventListener(
+    "click",
+    next
+  );
+
+  prevBtn.addEventListener(
+    "click",
+    prev
+  );
+
+
+  // ---------------------------------------
+  // Автопрокрутка
+  // ---------------------------------------
+
+  setInterval(() => {
+
+    next();
+
   }, 4000);
+
+
+  // ---------------------------------------
+  // Resize
+  // ---------------------------------------
+
+  window.addEventListener(
+    "resize",
+    () => {
+
+      const maxIndex =
+        getMaxIndex();
+
+      if (index > maxIndex) {
+        index = maxIndex;
+      }
+
+      update();
+
+    }
+  );
+
+
+  update();
 }
