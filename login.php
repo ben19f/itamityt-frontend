@@ -38,6 +38,7 @@
 
 <?php include 'footer.php'; ?>
 
+<script src="/js/config.js"></script>
 <script src="/js/login.js"></script>
 </body>
 </html>

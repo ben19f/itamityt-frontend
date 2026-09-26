@@ -1,6 +1,3 @@
-// URL бэкенда через Nginx proxy на /api
-// const API_URL = "https://dev.itamityt.ru/api"; 
-const API_URL = "/api";  
 
 const form = document.getElementById("registerForm");
 const messageEl = document.getElementById("message");
