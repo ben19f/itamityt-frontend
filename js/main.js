@@ -76,6 +76,74 @@ if (
 // 👤 НОВЫЕ ПОЛЬЗОВАТЕЛИ
 // =======================================
 
+// =======================================
+// 👤 НОВЫЕ ПОЛЬЗОВАТЕЛИ
+// =======================================
+
+const usersTrack =
+  document.getElementById("users-cards");
+
+
+if (usersTrack) {
+
+  fetch(`${API_URL}/public/last-users`)
+
+    .then(response => {
+
+      if (!response.ok) {
+        throw new Error(
+          "Не удалось загрузить пользователей"
+        );
+      }
+
+      return response.json();
+
+    })
+
+    .then(users => {
+
+      usersTrack.innerHTML = "";
+
+
+      if (
+        !Array.isArray(users) ||
+        users.length === 0
+      ) {
+
+        usersTrack.textContent =
+          "Нет пользователей";
+
+        return;
+
+      }
+
+
+      // Берём максимум 4 последних пользователя
+
+      users
+        .slice(0, 4)
+        .forEach(user => {
+
+          // =========================
+          // КАРТОЧКА
+          // =========================
+
+          const card =
+            document.createElement("div");
+
+          card.className = "user-card";
+
+
+          // =========================
+          // АВАТАР
+          // =========================
+
+          const avatar =
+            document.createElement("div");
+
+          avatar.className =
+            "user-card-avatar";
+
 const usersTrack =
   document.getElementById("users-cards");
 
@@ -453,5 +521,106 @@ function initUsersCarousel() {
 
     }
   );
+
+}
+          const avatarImg =
+            document.createElement("img");
+
+
+          avatarImg.src =
+            user.avatar_url ||
+            "/images/test-avatar.png";
+
+
+          avatarImg.alt =
+            user.display_name ||
+            user.username ||
+            "";
+
+
+          avatarImg.loading = "lazy";
+
+
+          avatar.appendChild(avatarImg);
+          card.appendChild(avatar);
+
+
+          // =========================
+          // USERNAME
+          // =========================
+
+          const username =
+            document.createElement("div");
+
+          username.className =
+            "user-card-username";
+
+
+          username.textContent =
+            `@${user.username}`;
+
+
+          card.appendChild(username);
+
+
+          // =========================
+          // ИМЯ
+          // =========================
+
+          if (
+            typeof user.display_name === "string" &&
+            user.display_name.trim() !== ""
+          ) {
+
+            const name =
+              document.createElement("div");
+
+            name.className =
+              "user-card-name";
+
+
+            name.textContent =
+              user.display_name.trim();
+
+
+            card.appendChild(name);
+
+          }
+
+
+          // =========================
+          // ПЕРЕХОД В ПРОФИЛЬ
+          // =========================
+
+          card.addEventListener(
+            "click",
+            () => {
+
+              window.location.href =
+                `/uun/${encodeURIComponent(
+                  user.username
+                )}`;
+
+            }
+          );
+
+
+          usersTrack.appendChild(card);
+
+        });
+
+
+      initUsersCarousel();
+
+    })
+
+    .catch(error => {
+
+      console.error(error);
+
+      usersTrack.textContent =
+        "Ошибка загрузки пользователей";
+
+    });
 
 }

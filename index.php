@@ -68,180 +68,104 @@
        ПРИМЕР СТРАНИЦЫ
        ========================================= -->
 
-  <section class="section">
-    <div class="container">
+ <section class="section">
+  <div class="container">
 
-      <h2 class="title">
-        Как выглядит страница
-      </h2>
+    <h2 class="title">
+      Как выглядит страница
+    </h2>
 
-      <div class="example-profile">
+    <div class="example-profile">
 
-        <!-- АВАТАР -->
-
-        <div class="example-profile-avatar-block">
-
-          <div class="example-profile-avatar">
-            <img
-              src="/images/test-avatar.png"
-              alt="Выставка «Музей костей»"
-            >
-          </div>
-
+      <div class="example-profile-avatar-block">
+        <div class="example-profile-avatar">
+          <img
+            src="/images/test-avatar.png"
+            alt="Музей костей"
+          >
         </div>
-
-
-        <!-- ИМЯ -->
-
-        <div class="example-profile-name-block">
-
-          <h3 class="example-profile-name">
-            Выставка «Музей костей»
-          </h3>
-
-        </div>
-
-
-        <!-- USERNAME -->
-
-        <div class="example-profile-username">
-          @muzej_kostej
-        </div>
-
-
-        <!-- ВЕРИФИКАЦИЯ -->
-
-        <div class="example-profile-verification">
-
-          <div class="example-verify-item">
-            <span class="example-verify-status example-verify-yes">
-              ✓
-            </span>
-
-            <span>
-              Проверено пользователем
-            </span>
-          </div>
-
-          <div class="example-verify-item">
-            <span class="example-verify-status example-verify-yes">
-              ✓
-            </span>
-
-            <span>
-              Проверено сервисом itamityt.ru
-            </span>
-          </div>
-
-        </div>
-
-
-        <!-- ГАЛЕРЕЯ -->
-
-        <div class="example-profile-gallery">
-
-          <div class="example-photo">
-            <img
-              src="/images/test-avatar.png"
-              alt=""
-            >
-          </div>
-
-          <div class="example-photo">
-            <img
-              src="/images/test-avatar.png"
-              alt=""
-            >
-          </div>
-
-          <div class="example-photo">
-            <img
-              src="/images/test-avatar.png"
-              alt=""
-            >
-          </div>
-
-        </div>
-
-
-        <!-- ОПИСАНИЕ -->
-
-        <div class="example-profile-description">
-
-          Просветительская выставка анатомических
-          скелетов и других природных объектов.
-
-        </div>
-
-
-        <!-- ССЫЛКИ -->
-
-        <div class="example-profile-links">
-
-          <div class="example-profile-link">
-            Сайт выставки
-          </div>
-
-          <div class="example-profile-link">
-            ВКонтакте
-          </div>
-
-          <div class="example-profile-link">
-            Яндекс Карты
-          </div>
-
-        </div>
-
-
-        <!-- ПОДЕЛИТЬСЯ -->
-
-        <button
-          class="btn-secondary example-profile-share"
-          type="button"
-        >
-          Поделиться профилем
-        </button>
-
       </div>
 
-    </div>
-  </section>
+      <div class="example-profile-name-block">
+        <h3 class="example-profile-name">
+          Музей костей
+        </h3>
+      </div>
 
+      <div class="example-profile-username">
+        @muzej_kostej
+      </div>
 
-  <!-- =========================================
-       ПРЕИМУЩЕСТВА
-       ========================================= -->
+      <div class="example-profile-verification">
 
-  <section class="section">
-    <div class="container">
-
-      <h2 class="title">
-        Почему это удобно
-      </h2>
-
-      <div class="grid advantages-grid">
-
-        <div class="card">
-          Все ссылки в одном месте
+        <div class="example-verify-item">
+          <span class="example-verify-status example-verify-yes">
+            ✓
+          </span>
+          <span>
+            Проверено пользователем
+          </span>
         </div>
 
-        <div class="card">
-          Быстрое создание страницы
-        </div>
-
-        <div class="card">
-          Удобно для социальных сетей
-        </div>
-
-        <div class="card">
-          Бесплатно
+        <div class="example-verify-item">
+          <span class="example-verify-status example-verify-yes">
+            ✓
+          </span>
+          <span>
+            Проверено сервисом itamityt.ru
+          </span>
         </div>
 
       </div>
 
-    </div>
-  </section>
+      <div class="example-profile-gallery">
 
+        <div class="example-photo">
+          <img src="/images/test-avatar.png" alt="">
+        </div>
+
+        <div class="example-photo">
+          <img src="/images/test-avatar.png" alt="">
+        </div>
+
+        <div class="example-photo">
+          <img src="/images/test-avatar.png" alt="">
+        </div>
+
+      </div>
+
+      <div class="example-profile-description">
+        Просветительская выставка анатомических
+        скелетов и других природных объектов.
+      </div>
+
+      <div class="example-profile-links">
+
+        <div class="example-profile-link">
+          Сайт выставки
+        </div>
+
+        <div class="example-profile-link">
+          ВКонтакте
+        </div>
+
+        <div class="example-profile-link">
+          Яндекс Карты
+        </div>
+
+      </div>
+
+      <button
+        class="btn-secondary example-profile-share"
+        type="button"
+      >
+        Поделиться профилем
+      </button>
+
+    </div>
+
+  </div>
+</section>
 
   <!-- =========================================
        НОВЫЕ ПОЛЬЗОВАТЕЛИ
