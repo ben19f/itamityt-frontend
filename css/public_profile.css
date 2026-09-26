@@ -108,7 +108,6 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-
   color: #777;
   font-size: 13px;
 }
@@ -125,26 +124,26 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   width: 18px;
   height: 18px;
-
   border-radius: 50%;
-
   font-size: 12px;
   font-weight: 700;
 }
 
-.owner-verify-status {
-  color: #c62828;
-  background: #ffebee;
-}
+/* Y — подтверждено */
 
-.service-verify-status {
+.verify-status-yes {
   color: #2e7d32;
   background: #e8f5e9;
 }
 
+/* X — не подтверждено */
+
+.verify-status-no {
+  color: #c62828;
+  background: #ffebee;
+}
 
 /* =========================================
    ОПИСАНИЕ
