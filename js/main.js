@@ -76,18 +76,6 @@ if (
 // 👤 НОВЫЕ ПОЛЬЗОВАТЕЛИ
 // =======================================
 
-// =======================================
-// 👤 НОВЫЕ ПОЛЬЗОВАТЕЛИ
-// =======================================
-
-// =======================================
-// 👤 НОВЫЕ ПОЛЬЗОВАТЕЛИ
-// =======================================
-
-// =======================================
-// 👤 НОВЫЕ ПОЛЬЗОВАТЕЛИ
-// =======================================
-
 const usersTrack =
   document.getElementById("users-cards");
 
@@ -244,6 +232,10 @@ if (usersTrack) {
 // 🎠 КАРУСЕЛЬ ПОЛЬЗОВАТЕЛЕЙ
 // =======================================
 
+// =======================================
+// 🎠 КАРУСЕЛЬ ПОЛЬЗОВАТЕЛЕЙ
+// =======================================
+
 function initUsersCarousel() {
 
   const track =
@@ -278,12 +270,13 @@ function initUsersCarousel() {
 
 
   // ---------------------------------------
-  // Размер одного шага
+  // Размер одной карточки + gap
   // ---------------------------------------
 
   function getCardStep() {
 
-    const card = cards[0];
+    const card =
+      cards[0];
 
     const style =
       window.getComputedStyle(track);
@@ -303,10 +296,6 @@ function initUsersCarousel() {
 
     const windowElement =
       track.parentElement;
-
-    if (!windowElement) {
-      return 1;
-    }
 
     const cardWidth =
       cards[0].offsetWidth;
@@ -328,7 +317,7 @@ function initUsersCarousel() {
 
 
   // ---------------------------------------
-  // Максимальный индекс
+  // Максимальная позиция
   // ---------------------------------------
 
   function getMaxIndex() {
@@ -344,7 +333,7 @@ function initUsersCarousel() {
 
 
   // ---------------------------------------
-  // Обновление позиции
+  // Обновление
   // ---------------------------------------
 
   function update() {
@@ -361,61 +350,7 @@ function initUsersCarousel() {
   // Вперёд
   // ---------------------------------------
 
-  nextBtn.addEventListener(
-    "click",
-    () => {
-
-      const maxIndex =
-        getMaxIndex();
-
-      if (maxIndex === 0) {
-        return;
-      }
-
-      index++;
-
-      if (index > maxIndex) {
-        index = 0;
-      }
-
-      update();
-
-    }
-  );
-
-
-  // ---------------------------------------
-  // Назад
-  // ---------------------------------------
-
-  prevBtn.addEventListener(
-    "click",
-    () => {
-
-      const maxIndex =
-        getMaxIndex();
-
-      if (maxIndex === 0) {
-        return;
-      }
-
-      index--;
-
-      if (index < 0) {
-        index = maxIndex;
-      }
-
-      update();
-
-    }
-  );
-
-
-  // ---------------------------------------
-  // Автоматическая прокрутка
-  // ---------------------------------------
-
-  setInterval(() => {
+  function next() {
 
     const maxIndex =
       getMaxIndex();
@@ -431,12 +366,60 @@ function initUsersCarousel() {
     }
 
     update();
+  }
+
+
+  // ---------------------------------------
+  // Назад
+  // ---------------------------------------
+
+  function prev() {
+
+    const maxIndex =
+      getMaxIndex();
+
+    if (maxIndex === 0) {
+      return;
+    }
+
+    index--;
+
+    if (index < 0) {
+      index = maxIndex;
+    }
+
+    update();
+  }
+
+
+  // ---------------------------------------
+  // Кнопки
+  // ---------------------------------------
+
+  nextBtn.addEventListener(
+    "click",
+    next
+  );
+
+  prevBtn.addEventListener(
+    "click",
+    prev
+  );
+
+
+  // ---------------------------------------
+  // Автопрокрутка
+  // ---------------------------------------
+
+  setInterval(() => {
+
+    next();
 
   }, 4000);
 
 
   // ---------------------------------------
-  // При изменении размера окна
+  // Resize
   // ---------------------------------------
 
   window.addEventListener(
@@ -455,8 +438,6 @@ function initUsersCarousel() {
     }
   );
 
-
-  // Первоначальная позиция
 
   update();
 }
