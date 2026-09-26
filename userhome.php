@@ -37,6 +37,7 @@
 
 <?php include 'footer.php'; ?>
 
+<script src="/js/config.js"></script>
 <script src="/js/profile.js"></script>
 <script src="/js/main.js"></script>
 </body>
