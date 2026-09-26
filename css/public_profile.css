@@ -16,6 +16,22 @@
   border-radius: 80px;
 }
 
+.profile-name {
+  margin-bottom: 5px;
+}
+
+.profile-username {
+  margin-bottom: 10px;
+}
+
+.profile-description {
+  margin-bottom: 10px;
+
+  padding: 20px 10px;
+  border-radius: 10px;
+  background-color: rgb(184, 229, 233);
+}
+
 
 .profile-subtitle {
   color: #777;
@@ -29,6 +45,12 @@
 }
 
 
+.profile-extra {
+  margin-top: 10px;
+  padding: 20px 10px;
+  border-radius: 10px;
+  background-color: rgb(212, 191, 163);
+}
 
 
 /* 🔥 САМОЕ ВАЖНОЕ */

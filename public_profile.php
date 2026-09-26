@@ -15,7 +15,7 @@
     </div>
 
     <!-- ИМЯ -->
-    <h1 id="profile-name">Имя пользователя</h1>
+    <h1 id="profile-name" class="profile-name" >Имя пользователя</h1>
 
     <!-- USERNAME -->
     <div id="profile-title" class="profile-username">
