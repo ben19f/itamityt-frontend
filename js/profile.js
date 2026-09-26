@@ -1,6 +1,3 @@
-const API_URL = "/api";
-const REDIRECT_URL = "/rserv";
-
 const token = localStorage.getItem("token");
 if (!token) {
   window.location.href = "/login.php";

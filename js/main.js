@@ -1,8 +1,3 @@
-// const API_URL = "https://dev.itamityt.ru/api/public";
-// const REDIRECT_URL = "https://dev.itamityt.ru/rserv";
-const API_URL = "/api/public";
-const REDIRECT_URL = "/rserv";
-
 const searchBtn = document.getElementById("search-btn");
 const searchUsernameInput = document.getElementById("search-username");
 const messageEl = document.getElementById("message");
@@ -25,13 +20,14 @@ if (searchBtn && searchUsernameInput && messageEl) {
       return;
     }
 
-    fetch(`${API_URL}/profile/${encodeURIComponent(username)}`)
+    fetch(`${API_URL}/public/profile/${encodeURIComponent(username)}`)
       .then(res => {
         if (!res.ok) throw new Error("Пользователь не найден");
         return res.json();
       })
       .then(() => {
-        window.location.href = `public_profile.php?username=${encodeURIComponent(username)}`;
+        // window.location.href = `public_profile.php?username=${encodeURIComponent(username)}`;
+        window.location.href = `/uun/${encodeURIComponent(username)}`;
       })
       .catch(err => {
         console.error(err);
@@ -46,7 +42,7 @@ if (searchBtn && searchUsernameInput && messageEl) {
 const usersTrack = document.getElementById("users-cards");
 
 if (usersTrack) {
-  fetch(`${API_URL}/last-users`)
+  fetch(`${API_URL}/public/last-users`)
     .then(res => {
       if (!res.ok) throw new Error("Не удалось загрузить пользователей");
       return res.json();
@@ -86,7 +82,8 @@ if (usersTrack) {
         }
 
         card.addEventListener("click", () => {
-          window.location.href = `public_profile.php?username=${encodeURIComponent(user.username)}`;
+          // window.location.href = `public_profile.php?username=${encodeURIComponent(user.username)}`;
+          window.location.href = `/uun/${encodeURIComponent(user.username)}`;
         });
 
         usersTrack.appendChild(card);

@@ -4,12 +4,34 @@
 
   <!-- 👤 ШАПКА ПРОФИЛЯ -->
   <div class="profile-header-block">
-    <h1 id="profile-title">@username</h1>
-    <p class="profile-subtitle">Все ссылки пользователя в одном месте</p>
 
+    <!-- АВАТАР -->
+    <div class="profile-avatar">
+      <img
+        id="profile-avatar"
+        src="/images/test-avatar.png"
+        alt="Аватар пользователя"
+      >
+    </div>
+
+    <!-- ИМЯ -->
+    <h1 id="profile-name">Имя пользователя</h1>
+
+    <!-- USERNAME -->
+    <div id="profile-title" class="profile-username">
+      @username
+    </div>
+
+    <!-- КОРОТКОЕ ОПИСАНИЕ -->
+    <p id="profile-description" class="profile-description">
+      Здесь будет описание страницы пользователя.
+    </p>
+
+    <!-- КНОПКА -->
     <button id="copy-profile-link" class="btn-secondary">
       Скопировать ссылку
     </button>
+
   </div>
 
 
@@ -18,6 +40,25 @@
     <!-- ссылки будут тут -->
   </div>
 
+
+  <!-- 📌 ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ -->
+  <div id="profile-extra" class="profile-extra">
+    <!--
+      Например:
+
+      Адрес:
+      г. Казань, ул. ...
+
+      Время работы:
+      Пн–Пт: 10:00–20:00
+      Сб–Вс: 11:00–18:00
+
+      Телефон:
+      +7 ...
+    -->
+  </div>
+
+
   <!-- 📭 СООБЩЕНИЯ -->
   <p id="message"></p>
 
@@ -25,6 +66,7 @@
 
 <?php include 'footer.php'; ?>
 
+<script src="/js/config.js"></script>
 <script src="/js/public_profile.js"></script>
 <script src="/js/main.js"></script>
 </body>
