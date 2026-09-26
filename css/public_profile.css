@@ -24,6 +24,41 @@
   margin-bottom: 10px;
 }
 
+
+.owner-verify {
+  margin-bottom: 5px;
+}
+
+.owner-verify-status {
+  color: red;
+  font-weight: bolder;
+  font-size: 14;
+}
+
+.service-verify {
+  margin-bottom: 5px;
+}
+
+.service-verify-status {
+  color: green;
+  font-weight: bolder;
+  font-size: 14;
+}
+
+
+.user-gallery {
+  display: flex;
+  flex-direction: row;
+  /* min-width: 310px; */
+}
+
+.user-photo-card {
+  height: 70px; 
+  min-width: 40px;
+  border: solid 2px orange;
+  margin-right: 20px;
+}
+
 .profile-description {
   margin-bottom: 10px;
 

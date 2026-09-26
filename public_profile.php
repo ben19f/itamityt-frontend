@@ -22,6 +22,20 @@
       @username
     </div>
 
+    <!-- статусы верификации аккаунта -->
+    <div class="verify-status">
+      <div class="owner-verify"><span class="owner-verify-status">Х        </span><span>Не проверено пользователем</span></div>
+      <div class="service-verify"><span class="service-verify-status">Y      </span><span>Проверено сервисом itamityt.ru</span></div>
+    </div>
+
+
+    <div class="user-gallery">
+      <div class="user-photo-card user-photo-2">photo 1</div>
+      <div class="user-photo-card user-photo-2">photo 2</div>
+      <div class="user-photo-card user-photo-3">photo 3</div>
+    </div>
+    
+
     <!-- КОРОТКОЕ ОПИСАНИЕ -->
     <p id="profile-description" class="profile-description">
       Здесь будет описание страницы пользователя.
@@ -29,7 +43,7 @@
 
     <!-- КНОПКА -->
     <button id="copy-profile-link" class="btn-secondary">
-      Скопировать ссылку
+      поделится профилем (Скопировать ссылку)
     </button>
 
   </div>
