@@ -182,20 +182,38 @@
 }
 
 .user-gallery {
-  display: grid;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  width: 100%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding-bottom: 4px;
 
   /*
-   * На мобильном:
-   * одна большая фотография
+   * Чтобы прокрутка на мобильном
+   * ощущалась естественно
    */
-  grid-template-columns: 1fr;
+  -webkit-overflow-scrolling: touch;
 
-  gap: 8px;
+  /*
+   * Не показываем scrollbar в Firefox
+   */
+  scrollbar-width: none;
+}
+
+.user-gallery::-webkit-scrollbar {
+  display: none;
 }
 
 .user-photo-card {
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  flex: 0 0 120px;
+
+  width: 120px;
+  height: 120px;
 
   border-radius: 12px;
 
@@ -212,7 +230,6 @@
 
   object-fit: cover;
 }
-
 
 /* =========================================
    ССЫЛКИ
