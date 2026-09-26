@@ -180,38 +180,32 @@
 
       <div class="users-carousel">
 
-        <button
-          class="users-carousel-button"
-          id="users-btn--prev"
-          type="button"
-          aria-label="Предыдущий пользователь"
-        >
-          ←
-        </button>
+  <button
+    class="users-carousel-button"
+    id="users-btn--prev"
+    type="button"
+  >
+    ←
+  </button>
 
+  <div class="users-carousel-window">
+    <div
+      class="users-carousel-cards"
+      id="users-cards"
+    ></div>
+  </div>
 
-        <div class="users-carousel-window">
+  <button
+    class="users-carousel-button"
+    id="users-btn--next"
+    type="button"
+  >
+    →
+  </button>
 
-          <div
-            class="users-carousel-cards"
-            id="users-cards"
-          ></div>
+</div>
 
-        </div>
-
-
-        <button
-          class="users-carousel-button"
-          id="users-btn--next"
-          type="button"
-          aria-label="Следующий пользователь"
-        >
-          →
-        </button>
-
-      </div>
-
-    </div>
+<p id="users-message"></p>
   </section>
 
 
