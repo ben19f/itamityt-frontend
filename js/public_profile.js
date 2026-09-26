@@ -431,6 +431,10 @@ function renderExtra(profile) {
 
 function renderProfile(profile) {
 
+  // =========================================
+  // СТАНДАРТНОЕ НАЧАЛО
+  // =========================================
+
   renderAvatar(profile);
 
   renderName(profile);
@@ -439,16 +443,79 @@ function renderProfile(profile) {
 
   renderVerification(profile);
 
-  renderGallery(profile.photos);
 
-  renderDescription(profile);
+  // =========================================
+  // СТАНДАРТНЫЙ ПОРЯДОК ОСТАЛЬНЫХ БЛОКОВ
+  // =========================================
 
-  renderLinks(profile);
+  const defaultBlocks = [
+    "gallery",
+    "description",
+    "links",
+    "extra"
+  ];
 
-  renderExtra(profile);
+
+  // =========================================
+  // РЕНДЕРЕРЫ БЛОКОВ
+  // =========================================
+
+  const renderers = {
+
+    gallery: () => {
+      renderGallery(profile.photos);
+    },
+
+    description: () => {
+      renderDescription(profile);
+    },
+
+    links: () => {
+      renderLinks(profile);
+    },
+
+    extra: () => {
+      renderExtra(profile);
+    }
+
+  };
+
+
+  // =========================================
+  // ЕСЛИ BACKEND НЕ ПЕРЕДАЛ ПОСЛЕДОВАТЕЛЬНОСТЬ
+  // ИЛИ МАССИВ ПУСТОЙ
+  // =========================================
+
+  if (
+    !Array.isArray(profile.blocks) ||
+    profile.blocks.length === 0
+  ) {
+
+    defaultBlocks.forEach(block => {
+
+      renderers[block]();
+
+    });
+
+    return;
+  }
+
+
+  // =========================================
+  // ЕСЛИ BACKEND ПЕРЕДАЛ ПОСЛЕДОВАТЕЛЬНОСТЬ
+  // =========================================
+
+  profile.blocks.forEach(block => {
+
+    const renderer = renderers[block];
+
+    if (renderer) {
+      renderer();
+    }
+
+  });
 
 }
-
 
 // =====================================================
 // ЗАГРУЗКА ПРОФИЛЯ
