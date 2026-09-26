@@ -2,6 +2,7 @@
 
 html {
   box-sizing: border-box;
+  width: 100%;
 }
 
 *,
@@ -11,18 +12,28 @@ html {
 }
 
 body {
+  width: 100%;
   min-width: 320px;
+  margin: 0;
+  padding: 0;
+
   background-color: var(--white);
+
   font-family: 'OpenSans', Arial, sans-serif;
   color: var(--black);
+
+  overflow-x: hidden;
 }
 
 button,
-input {
+input,
+textarea,
+select {
   font: inherit;
 }
 
 img {
+  display: block;
   max-width: 100%;
   height: auto;
 }
@@ -38,10 +49,14 @@ ul {
   margin: 0;
 }
 
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
   margin: 0;
   padding: 0;
 }
+
 
 /* ===== VARIABLES ===== */
 
@@ -62,17 +77,21 @@ h1, h2, h3, p {
   --space-lg: 32px;
 }
 
+
 /* ===== LAYOUT ===== */
 
 .container {
+  width: 100%;
   max-width: 750px;
-  padding: 0 20px;
+
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .section {
   padding: 40px 0;
 }
+
 
 /* ===== TYPOGRAPHY ===== */
 
@@ -86,14 +105,19 @@ h1, h2, h3, p {
   text-align: center;
 }
 
+
 /* ===== COMPONENTS ===== */
 
 .button {
   display: inline-block;
+
   background: var(--primary);
   color: #fff;
+
   padding: 12px 20px;
+
   border-radius: var(--radius);
+
   cursor: pointer;
   border: none;
 }
@@ -104,18 +128,27 @@ h1, h2, h3, p {
 
 .card {
   background: var(--card-bg);
+
   border-radius: var(--radius);
+
   padding: var(--space-md);
+
   border: 1px solid #eee;
 }
 
 .input {
+  display: block;
+
   width: 100%;
+
   padding: 10px;
+
   border-radius: var(--radius);
   border: 1px solid #ccc;
+
   margin-bottom: var(--space-sm);
 }
+
 
 /* ===== GRID ===== */
 
@@ -124,10 +157,36 @@ h1, h2, h3, p {
   gap: var(--space-sm);
 }
 
+
 /* ===== UTILS ===== */
 
 .center {
   display: flex;
+
   flex-direction: column;
   align-items: center;
+}
+
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 599px) {
+
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+}
+
+
+/* ===== DESKTOP ===== */
+
+@media (min-width: 600px) {
+
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
 }
