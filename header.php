@@ -17,7 +17,7 @@
   </div>
   <!--v0.3.1 -->
   <!-- Yandex.Metrika counter -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
         m[i].l=1*new Date();
@@ -27,7 +27,7 @@
 
     ym(112724243, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/112724243" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/112724243" style="position:absolute; left:-9999px;" alt="" /></div></noscript> -->
 <!-- /Yandex.Metrika counter -->
 </header>
 
