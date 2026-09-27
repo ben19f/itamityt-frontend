@@ -1,3 +1,5 @@
+подогнал под верификацию
+
 # ITAMITYT Frontend
 
 Frontend сервиса [itamityt.ru](https://itamityt.ru).
