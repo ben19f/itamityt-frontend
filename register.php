@@ -45,6 +45,7 @@
 
 <?php include 'footer.php'; ?>
 
+<script src="/js/config.js"></script>
 <script src="/js/register.js"></script>
 </body>
 </html>
