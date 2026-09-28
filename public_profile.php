@@ -3,7 +3,7 @@
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $username = trim(str_replace('/uun/', '', $path), '/');
 
-$page_title = 'Визитка @' . $username;
+$page_title = 'Визитка @' . $username . ' | И там и тут';
 $page_description = 'Публичная страница пользователя на сервисе И там и тут.';
 
 include 'header.php';
