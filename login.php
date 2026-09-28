@@ -1,5 +1,11 @@
-<?php include 'header.php'; ?>  
-<?php include 'menu.php'; ?> 
+<?php
+
+$page_title = 'Вход — И там и тут';
+$page_description = 'Войдите в свой аккаунт И там и тут, чтобы управлять своей страницей и ссылками.';
+
+include 'header.php';
+include 'menu.php';
+?> 
 
 <div class="container auth-page">
 

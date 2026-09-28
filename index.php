@@ -1,5 +1,12 @@
-<?php include 'header.php'; ?> 
-<?php include 'menu.php'; ?>    
+<?php
+
+$page_title = 'И там и тут — Главная';
+$page_description = 'Создайте свою страницу со ссылками, информацией и фотографиями. Одна ссылка вместо множества.';
+
+include 'header.php';
+include 'menu.php';
+
+?>
 
 <main>
 

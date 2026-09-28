@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Главная -->
+  <url>
+    <loc>https://itamityt.ru/</loc>
+  </url>
+
+  <!-- Информационные страницы -->
+  <url>
+    <loc>https://itamityt.ru/about.php</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/how-to.php</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/contacts.php</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/privacy.php</loc>
+  </url>
+
+  <!-- Каталог -->
+  <!-- <url>
+    <loc>https://itamityt.ru/catalog</loc>
+  </url> -->
+
+  <!-- Публичные профили -->
+  <url>
+    <loc>https://itamityt.ru/uun/muzej_kostej</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/b_soltani</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/Lazurnaya</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/mega_museum_ussr</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/muzeisochi</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/sochi_artmuseum</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/sochiarchmuseum</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/kultura_sochi</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/museum_n_ostrovsky</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/grandmaketsochi</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/khostamuseum</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/sochigeo</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/waxmuseumsochi</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/teslamegavolt</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/museumadler</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/ceramica_novicov</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/teahouses_sochi</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/artlebedev</loc>
+  </url>
+
+  <url>
+    <loc>https://itamityt.ru/uun/iaroslavasol</loc>
+  </url>
+
+</urlset>
