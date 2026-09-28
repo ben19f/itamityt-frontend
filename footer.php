@@ -6,7 +6,7 @@
     <div class="footer-links">
       <a href="/about.php">О сервисе</a>
       <a href="/how-to.php">Как пользоваться</a>
-      <a href="/contacts">Контакты</a>
+      <a href="/contacts.php">Контакты</a>
       <a href="/privacy.php">Политика конфиденциальности</a>
     </div>
   </div>
