@@ -1,5 +1,12 @@
-<?php include 'header.php'; ?>  
-<?php include 'menu.php'; ?> 
+<?php
+
+$page_title = 'Регистрация — И там и тут';
+$page_description = 'Создайте свою страницу в И там и тут. Соберите ссылки, информацию и фотографии в одном месте.';
+
+include 'header.php';
+include 'menu.php';
+
+?>
 
 <div class="container auth-page">
 

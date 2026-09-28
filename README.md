@@ -1,5 +1,5 @@
 подогнал под верификацию
-
+выполнена базовая оптимизация страниц
 # ITAMITYT Frontend
 
 Frontend сервиса [itamityt.ru](https://itamityt.ru).

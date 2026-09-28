@@ -1,0 +1,11 @@
+User-agent: *
+
+Allow: /
+
+Disallow: /login.php
+Disallow: /register.php
+Disallow: /userhome.php
+Disallow: /verify-email.php
+Disallow: /api/
+
+Sitemap: https://itamityt.ru/sitemap.xml
