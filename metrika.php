@@ -1,4 +1,3 @@
-```php
 <?php
 
 if (getenv('YANDEX_METRIKA_ENABLED') !== 'true') {
