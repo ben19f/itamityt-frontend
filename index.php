@@ -87,6 +87,7 @@ include 'menu.php';
       <div class="example-profile-avatar-block">
         <div class="example-profile-avatar">
           <img
+            id="example-profile-avatar"
             src="/images/test-avatar.png"
             alt="Музей костей"
           >
@@ -146,28 +147,16 @@ include 'menu.php';
         скелетов и других природных объектов.
       </div>
 
-      <div class="example-profile-links">
-
-        <div class="example-profile-link">
-          Сайт выставки
-        </div>
-
-        <div class="example-profile-link">
-          ВКонтакте
-        </div>
-
-        <div class="example-profile-link">
-          Яндекс Карты
-        </div>
-
+      <div class="example-profile-links" id="example-profile-links">
+        <a class="example-profile-link" href="/uun/muzej_kostej">Открыть профиль</a>
       </div>
 
-      <button
+      <a
         class="btn-secondary example-profile-share"
-        type="button"
+        href="/uun/muzej_kostej"
       >
-        Поделиться профилем
-      </button>
+        Открыть профиль
+      </a>
 
     </div>
 
@@ -241,6 +230,7 @@ include 'menu.php';
 <?php include 'footer.php'; ?>
 
 <script src="/js/config.js"></script>
+<script src="/js/example_profile.js"></script>
 <script src="/js/main.js"></script>
 
 </body>
