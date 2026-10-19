@@ -711,6 +711,11 @@ async function loadItems() {
 
         </div>
 
+        <div class="link-clicks" aria-label="Количество переходов по ссылке">
+          <span class="link-clicks-label">Клики</span>
+          <span class="link-clicks-count"></span>
+        </div>
+
         <div class="link-actions">
 
           <a
@@ -737,6 +742,10 @@ async function loadItems() {
 
         </div>
       `;
+
+      const clickCountElement = card.querySelector(".link-clicks-count");
+      clickCountElement.textContent = "…";
+      loadItemClickCount(item.link_id, clickCountElement);
 
 
       card
@@ -766,6 +775,40 @@ async function loadItems() {
 
   }
 
+}
+
+async function loadItemClickCount(linkId, target) {
+  try {
+    const response = await fetch(
+      `${REDIRECT_URL}/${encodeURIComponent(linkId)}/clicks`
+    );
+
+    if (!response.ok) {
+      throw new Error("Не удалось загрузить статистику кликов");
+    }
+
+    const body = await response.text();
+    let data;
+    try {
+      data = JSON.parse(body);
+    } catch {
+      data = body.trim();
+    }
+    const rawCount = typeof data === "number"
+      ? data
+      : data?.clicks ?? data?.click_count ?? data?.count ?? data?.total_clicks;
+    const count = Number(rawCount);
+
+    if (rawCount == null || !Number.isFinite(count) || count < 0) {
+      throw new Error("Некорректный формат статистики кликов");
+    }
+
+    target.textContent = new Intl.NumberFormat("ru-RU").format(count);
+    target.removeAttribute("title");
+  } catch (error) {
+    target.textContent = "—";
+    target.title = "Не удалось загрузить статистику кликов";
+  }
 }
 
 
