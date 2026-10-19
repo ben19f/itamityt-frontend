@@ -71,6 +71,10 @@
   object-fit: cover;
 }
 
+.example-profile [hidden] {
+  display: none !important;
+}
+
 
 /* =========================================
    ИМЯ

@@ -84,9 +84,11 @@ include 'menu.php';
 
     <div class="example-profile">
 
-      <div class="example-profile-avatar-block">
+      <div class="example-profile-avatar-block" id="example-profile-avatar-block" hidden>
         <div class="example-profile-avatar">
           <img
+            id="example-profile-avatar"
+            hidden
             src="/images/test-avatar.png"
             alt="Музей костей"
           >
@@ -94,16 +96,16 @@ include 'menu.php';
       </div>
 
       <div class="example-profile-name-block">
-        <h3 class="example-profile-name">
+        <h3 class="example-profile-name" id="example-profile-name">
           Музей костей
         </h3>
       </div>
 
-      <div class="example-profile-username">
+      <div class="example-profile-username" id="example-profile-username">
         @muzej_kostej
       </div>
 
-      <div class="example-profile-verification">
+      <div class="example-profile-verification" id="example-profile-verification" hidden>
 
         <div class="example-verify-item">
           <span class="example-verify-status example-verify-yes">
@@ -125,49 +127,21 @@ include 'menu.php';
 
       </div>
 
-      <div class="example-profile-gallery">
+      <div class="example-profile-gallery" id="example-profile-gallery" hidden></div>
 
-        <div class="example-photo">
-          <img src="/images/test-avatar.png" alt="">
-        </div>
-
-        <div class="example-photo">
-          <img src="/images/test-avatar.png" alt="">
-        </div>
-
-        <div class="example-photo">
-          <img src="/images/test-avatar.png" alt="">
-        </div>
-
+      <div class="example-profile-description" id="example-profile-description" hidden>
       </div>
 
-      <div class="example-profile-description">
-        Просветительская выставка анатомических
-        скелетов и других природных объектов.
+      <div class="example-profile-links" id="example-profile-links">
+        <a class="example-profile-link" href="/uun/muzej_kostej">Открыть профиль</a>
       </div>
 
-      <div class="example-profile-links">
-
-        <div class="example-profile-link">
-          Сайт выставки
-        </div>
-
-        <div class="example-profile-link">
-          ВКонтакте
-        </div>
-
-        <div class="example-profile-link">
-          Яндекс Карты
-        </div>
-
-      </div>
-
-      <button
+      <a
         class="btn-secondary example-profile-share"
-        type="button"
+        href="/uun/muzej_kostej"
       >
-        Поделиться профилем
-      </button>
+        Открыть профиль
+      </a>
 
     </div>
 
@@ -241,6 +215,7 @@ include 'menu.php';
 <?php include 'footer.php'; ?>
 
 <script src="/js/config.js"></script>
+<script src="/js/example_profile.js"></script>
 <script src="/js/main.js"></script>
 
 </body>
