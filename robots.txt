@@ -6,6 +6,8 @@ Disallow: /login.php
 Disallow: /register.php
 Disallow: /userhome.php
 Disallow: /verify-email.php
+Disallow: /forgot-password.php
+Disallow: /reset-password.php
 Disallow: /api/
 
 Sitemap: https://itamityt.ru/sitemap.xml

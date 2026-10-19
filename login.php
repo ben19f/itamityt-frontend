@@ -33,6 +33,10 @@ include 'menu.php';
 
     </form>
 
+    <p class="auth-footer">
+      <a href="/forgot-password.php">Забыли пароль?</a>
+    </p>
+
     <p id="message" class="form-message"></p>
 
     <p class="auth-footer">
