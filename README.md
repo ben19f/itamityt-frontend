@@ -1,6 +1,19 @@
 добавлены сброс и изменение пароля и изменение почты
 подогнал под верификацию
 выполнена базовая оптимизация страниц
+
+теги каталога
+по сферам
+Добавляйте сферу в tags как пару «ключ — значение»:
+Сфера	Ключ	Значение
+Общепит	category	food
+Отель	category	hotel
+Блогер	category	blogger
+Музей / выставка	category	museum
+Компьютерный клуб	category	computer_club
+Медучреждение	category	medical
+Другой бизнес	category	other
+
 # ITAMITYT Frontend
 
 Frontend сервиса [itamityt.ru](https://itamityt.ru).
