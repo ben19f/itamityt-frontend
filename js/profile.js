@@ -57,6 +57,11 @@ async function loadProfile() {
 
     const user = await res.json();
 
+    const currentEmail = document.getElementById("currentEmail");
+    if (currentEmail) {
+      currentEmail.textContent = user.email || "Не указан";
+    }
+
     document.getElementById("displayName").value =
       user.display_name || "";
 
@@ -79,6 +84,66 @@ async function loadProfile() {
     showMessage(err.message);
   }
 }
+
+// =====================================================
+// ПАРОЛЬ И ПОЧТА
+// =====================================================
+
+function showAccountMessage(element, text, type = "error") {
+  element.textContent = text;
+  element.style.color = type === "success" ? "green" : "red";
+}
+
+document.getElementById("passwordForm")?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const form = e.currentTarget;
+  const currentPassword = form.elements.current_password.value;
+  const newPassword = form.elements.new_password.value;
+  const confirmPassword = form.elements.confirm_password.value;
+  const feedback = document.getElementById("passwordMessage");
+
+  if (newPassword !== confirmPassword) {
+    showAccountMessage(feedback, "Новые пароли не совпадают");
+    return;
+  }
+
+  try {
+    const res = await fetch(`${API_URL}/users/me/password`, {
+      method: "PATCH",
+      headers: getAuthHeaders(),
+      body: JSON.stringify({ current_password: currentPassword, new_password: newPassword })
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.detail || "Не удалось изменить пароль");
+
+    form.reset();
+    showAccountMessage(feedback, data.message || "Пароль успешно изменён", "success");
+  } catch (err) {
+    showAccountMessage(feedback, err.message);
+  }
+});
+
+document.getElementById("emailForm")?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const form = e.currentTarget;
+  const feedback = document.getElementById("emailMessage");
+  const newEmail = form.elements.new_email.value.trim();
+
+  try {
+    const res = await fetch(`${API_URL}/users/me/email`, {
+      method: "PATCH",
+      headers: getAuthHeaders(),
+      body: JSON.stringify({ new_email: newEmail, current_password: form.elements.current_password.value })
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.detail || "Не удалось изменить почту");
+
+    form.reset();
+    showAccountMessage(feedback, data.message || `Ссылка для подтверждения отправлена на ${data.pending_email || newEmail}`, "success");
+  } catch (err) {
+    showAccountMessage(feedback, err.message);
+  }
+});
 
 
 // =====================================================

@@ -103,6 +103,52 @@
     </div>
   </section>
 
+  <!-- 🔐 Безопасность аккаунта -->
+  <section class="dashboard-section account-security">
+    <h2>Безопасность аккаунта</h2>
+
+    <div class="account-settings-grid">
+      <div class="account-setting-card">
+        <h3>Изменить пароль</h3>
+        <p class="section-description">Подтвердите текущий пароль и задайте новый.</p>
+        <form id="passwordForm" class="account-setting-form">
+          <label>
+            Текущий пароль
+            <input type="password" name="current_password" autocomplete="current-password" required>
+          </label>
+          <label>
+            Новый пароль
+            <input type="password" name="new_password" autocomplete="new-password" minlength="6" required>
+          </label>
+          <label>
+            Повторите новый пароль
+            <input type="password" name="confirm_password" autocomplete="new-password" minlength="6" required>
+          </label>
+          <button type="submit" class="btn-primary">Изменить пароль</button>
+          <p id="passwordMessage" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="account-setting-card">
+        <h3>Изменить почту</h3>
+        <p class="section-description">Текущий адрес: <strong id="currentEmail">Загрузка…</strong></p>
+        <p class="section-description">На новый адрес придёт ссылка для подтверждения изменений.</p>
+        <form id="emailForm" class="account-setting-form">
+          <label>
+            Новый адрес почты
+            <input type="email" name="new_email" autocomplete="email" required>
+          </label>
+          <label>
+            Текущий пароль
+            <input type="password" name="current_password" autocomplete="current-password" required>
+          </label>
+          <button type="submit" class="btn-primary">Изменить почту</button>
+          <p id="emailMessage" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
 
   <!-- 🖼 Фотографии -->
   <section class="dashboard-section">
