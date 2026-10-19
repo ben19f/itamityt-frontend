@@ -399,6 +399,23 @@
 }
 
 
+@media (max-width: 719px) {
+  .users-carousel-button {
+    display: none;
+  }
+
+  .users-carousel-window {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .users-carousel-cards {
+    width: max-content;
+    transition: none;
+  }
+}
+
 /* =========================================
    CTA
    ========================================= */
